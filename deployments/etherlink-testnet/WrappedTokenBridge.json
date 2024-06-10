@@ -1,0 +1,1324 @@
+{
+  "address": "0xc81f0F0dc8B9303b9976250064c4865A475a2B73",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_endpoint",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_nonce",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_payload",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_reason",
+          "type": "bytes"
+        }
+      ],
+      "name": "MessageFailed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "localToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "remoteToken",
+          "type": "address"
+        }
+      ],
+      "name": "RegisterToken",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "_nonce",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_payloadHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RetryMessageSuccess",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_dstChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "_type",
+          "type": "uint16"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_minDstGas",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetMinDstGas",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "precrime",
+          "type": "address"
+        }
+      ],
+      "name": "SetPrecrime",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_path",
+          "type": "bytes"
+        }
+      ],
+      "name": "SetTrustedRemote",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "_remoteAddress",
+          "type": "bytes"
+        }
+      ],
+      "name": "SetTrustedRemoteAddress",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "useCustomAdapterParams",
+          "type": "bool"
+        }
+      ],
+      "name": "SetUseCustomAdapterParams",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "withdrawalFeeBps",
+          "type": "uint16"
+        }
+      ],
+      "name": "SetWithdrawalFeeBps",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "localToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "remoteToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "UnwrapToken",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "localToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "remoteToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "WrapToken",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "PT_MINT",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PT_UNLOCK",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOTAL_BPS",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "localToken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "unwrapWeth",
+          "type": "bool"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address payable",
+              "name": "refundAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "zroPaymentAddress",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct LzLib.CallParams",
+          "name": "callParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "adapterParams",
+          "type": "bytes"
+        }
+      ],
+      "name": "bridge",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "useZro",
+          "type": "bool"
+        },
+        {
+          "internalType": "bytes",
+          "name": "adapterParams",
+          "type": "bytes"
+        }
+      ],
+      "name": "estimateBridgeFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "nativeFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "zroFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "name": "failedMessages",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        }
+      ],
+      "name": "forceResumeReceive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_version",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_configType",
+          "type": "uint256"
+        }
+      ],
+      "name": "getConfig",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_remoteChainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTrustedRemoteAddress",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        }
+      ],
+      "name": "isTrustedRemote",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "localToRemote",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lzEndpoint",
+      "outputs": [
+        {
+          "internalType": "contract ILayerZeroEndpoint",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_nonce",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_payload",
+          "type": "bytes"
+        }
+      ],
+      "name": "lzReceive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "name": "minDstGasLookup",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_nonce",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_payload",
+          "type": "bytes"
+        }
+      ],
+      "name": "nonblockingLzReceive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "precrime",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "localToken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "remoteToken",
+          "type": "address"
+        }
+      ],
+      "name": "registerToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "remoteToLocal",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_srcAddress",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_nonce",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_payload",
+          "type": "bytes"
+        }
+      ],
+      "name": "retryMessage",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_version",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_configType",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_config",
+          "type": "bytes"
+        }
+      ],
+      "name": "setConfig",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_dstChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_packetType",
+          "type": "uint16"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minGas",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinDstGas",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_precrime",
+          "type": "address"
+        }
+      ],
+      "name": "setPrecrime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_version",
+          "type": "uint16"
+        }
+      ],
+      "name": "setReceiveVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_version",
+          "type": "uint16"
+        }
+      ],
+      "name": "setSendVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_srcChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_path",
+          "type": "bytes"
+        }
+      ],
+      "name": "setTrustedRemote",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_remoteChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_remoteAddress",
+          "type": "bytes"
+        }
+      ],
+      "name": "setTrustedRemoteAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "_useCustomAdapterParams",
+          "type": "bool"
+        }
+      ],
+      "name": "setUseCustomAdapterParams",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_withdrawalFeeBps",
+          "type": "uint16"
+        }
+      ],
+      "name": "setWithdrawalFeeBps",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "totalValueLocked",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "trustedRemoteLookup",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "useCustomAdapterParams",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawalFeeBps",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x75e545805024efefa9786fcb6a97b3c82561b12082b259e4e92a062d2abfe1d5",
+  "receipt": {
+    "to": null,
+    "from": "0x0863A707DBfdCeC01Ee55A92AA77c38d9f3645E5",
+    "contractAddress": "0xc81f0F0dc8B9303b9976250064c4865A475a2B73",
+    "transactionIndex": 0,
+    "gasUsed": "54495434",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000201002000000000000000000000000000000000020000000000000000000800000000000000000000000000000000404000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000008000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x0ca565c629b92962e94875c5950904fbbceee4e1c9aea314df63a39dd4cc7e6d",
+    "transactionHash": "0x75e545805024efefa9786fcb6a97b3c82561b12082b259e4e92a062d2abfe1d5",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 3229008,
+        "transactionHash": "0x75e545805024efefa9786fcb6a97b3c82561b12082b259e4e92a062d2abfe1d5",
+        "address": "0xc81f0F0dc8B9303b9976250064c4865A475a2B73",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000000863a707dbfdcec01ee55a92aa77c38d9f3645e5"
+        ],
+        "data": "0x",
+        "logIndex": 0,
+        "blockHash": "0x0ca565c629b92962e94875c5950904fbbceee4e1c9aea314df63a39dd4cc7e6d"
+      }
+    ],
+    "blockNumber": 3229008,
+    "cumulativeGasUsed": "54495434",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xec28645346D781674B4272706D8a938dB2BAA2C6"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "3667d1babc96d562acf2bea9f0fdbf29",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_endpoint\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"_nonce\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_payload\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_reason\",\"type\":\"bytes\"}],\"name\":\"MessageFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"}],\"name\":\"RegisterToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"_nonce\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_payloadHash\",\"type\":\"bytes32\"}],\"name\":\"RetryMessageSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_dstChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"_type\",\"type\":\"uint16\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_minDstGas\",\"type\":\"uint256\"}],\"name\":\"SetMinDstGas\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"precrime\",\"type\":\"address\"}],\"name\":\"SetPrecrime\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_remoteChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_path\",\"type\":\"bytes\"}],\"name\":\"SetTrustedRemote\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_remoteChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"_remoteAddress\",\"type\":\"bytes\"}],\"name\":\"SetTrustedRemoteAddress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"useCustomAdapterParams\",\"type\":\"bool\"}],\"name\":\"SetUseCustomAdapterParams\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"withdrawalFeeBps\",\"type\":\"uint16\"}],\"name\":\"SetWithdrawalFeeBps\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"UnwrapToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WrapToken\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"PT_MINT\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PT_UNLOCK\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOTAL_BPS\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"unwrapWeth\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"address payable\",\"name\":\"refundAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"zroPaymentAddress\",\"type\":\"address\"}],\"internalType\":\"struct LzLib.CallParams\",\"name\":\"callParams\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"adapterParams\",\"type\":\"bytes\"}],\"name\":\"bridge\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"useZro\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"adapterParams\",\"type\":\"bytes\"}],\"name\":\"estimateBridgeFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"nativeFee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"zroFee\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"name\":\"failedMessages\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"}],\"name\":\"forceResumeReceive\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"_version\",\"type\":\"uint16\"},{\"internalType\":\"uint256\",\"name\":\"_chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_configType\",\"type\":\"uint256\"}],\"name\":\"getConfig\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_remoteChainId\",\"type\":\"uint256\"}],\"name\":\"getTrustedRemoteAddress\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"}],\"name\":\"isTrustedRemote\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"localToRemote\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lzEndpoint\",\"outputs\":[{\"internalType\":\"contract ILayerZeroEndpoint\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"_nonce\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"_payload\",\"type\":\"bytes\"}],\"name\":\"lzReceive\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"name\":\"minDstGasLookup\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"_nonce\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"_payload\",\"type\":\"bytes\"}],\"name\":\"nonblockingLzReceive\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"precrime\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"localToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"remoteChainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"remoteToken\",\"type\":\"address\"}],\"name\":\"registerToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"remoteToLocal\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_srcAddress\",\"type\":\"bytes\"},{\"internalType\":\"uint64\",\"name\":\"_nonce\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"_payload\",\"type\":\"bytes\"}],\"name\":\"retryMessage\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"_version\",\"type\":\"uint16\"},{\"internalType\":\"uint256\",\"name\":\"_chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_configType\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_config\",\"type\":\"bytes\"}],\"name\":\"setConfig\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_dstChainId\",\"type\":\"uint256\"},{\"internalType\":\"uint16\",\"name\":\"_packetType\",\"type\":\"uint16\"},{\"internalType\":\"uint256\",\"name\":\"_minGas\",\"type\":\"uint256\"}],\"name\":\"setMinDstGas\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_precrime\",\"type\":\"address\"}],\"name\":\"setPrecrime\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"_version\",\"type\":\"uint16\"}],\"name\":\"setReceiveVersion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"_version\",\"type\":\"uint16\"}],\"name\":\"setSendVersion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_srcChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_path\",\"type\":\"bytes\"}],\"name\":\"setTrustedRemote\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_remoteChainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_remoteAddress\",\"type\":\"bytes\"}],\"name\":\"setTrustedRemoteAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_useCustomAdapterParams\",\"type\":\"bool\"}],\"name\":\"setUseCustomAdapterParams\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"_withdrawalFeeBps\",\"type\":\"uint16\"}],\"name\":\"setWithdrawalFeeBps\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"totalValueLocked\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"trustedRemoteLookup\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"useCustomAdapterParams\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawalFeeBps\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Mints a wrapped token when a message received from a remote chain and burns a wrapped token when bridging to a remote chain\",\"kind\":\"dev\",\"methods\":{\"bridge(address,uint256,uint256,address,bool,(address,address),bytes)\":{\"details\":\"Burns wrapped tokens and sends LZ message to the remote chain to unlock original tokens\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Overrides the renounce ownership logic inherited from openZeppelin `Ownable`\"},\"setUseCustomAdapterParams(bool)\":{\"details\":\"Can be called only by the bridge owner\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"stateVariables\":{\"localToRemote\":{\"details\":\"[local token] => [remote chain] => [remote token]\"},\"remoteToLocal\":{\"details\":\"[remote token] => [remote chain] => [local token]\"},\"totalValueLocked\":{\"details\":\"[remote chain] => [remote token] => [bridged amount]\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"PT_MINT()\":{\"notice\":\"A packet type used to identify messages requesting minting of wrapped tokens\"},\"PT_UNLOCK()\":{\"notice\":\"A packet type used to identify messages requesting unlocking of original tokens\"},\"TOTAL_BPS()\":{\"notice\":\"Total bps representing 100%\"},\"bridge(address,uint256,uint256,address,bool,(address,address),bytes)\":{\"notice\":\"Bridges `localToken` to the remote chain\"},\"localToRemote(address,uint256)\":{\"notice\":\"Tokens that can be bridged\"},\"remoteToLocal(address,uint256)\":{\"notice\":\"Tokens that can be bridged\"},\"setUseCustomAdapterParams(bool)\":{\"notice\":\"Sets the `useCustomAdapterParams` flag indicating whether the contract uses custom adapter parameters or the default ones\"},\"totalValueLocked(uint256,address)\":{\"notice\":\"Total value bridged per token and remote chains\"},\"withdrawalFeeBps()\":{\"notice\":\"An optional fee charged on withdrawal, expressed in bps. E.g., 1bps = 0.01%\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/WrappedTokenBridge.sol\":\"WrappedTokenBridge\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@layerzerolabs/solidity-examples/contracts/interfaces/ILayerZeroEndpoint.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.5.0;\\n\\nimport \\\"./ILayerZeroUserApplicationConfig.sol\\\";\\n\\ninterface ILayerZeroEndpoint is ILayerZeroUserApplicationConfig {\\n    // @notice send a LayerZero message to the specified address at a LayerZero endpoint.\\n    // @param _dstChainId - the destination chain identifier\\n    // @param _destination - the address on destination chain (in bytes). address length/format may vary by chains\\n    // @param _payload - a custom bytes payload to send to the destination contract\\n    // @param _refundAddress - if the source transaction is cheaper than the amount of value passed, refund the additional amount to this address\\n    // @param _zroPaymentAddress - the address of the ZRO token holder who would pay for the transaction\\n    // @param _adapterParams - parameters for custom functionality. e.g. receive airdropped native gas from the relayer on destination\\n    function send(uint256 _dstChainId, bytes calldata _destination, bytes calldata _payload, address payable _refundAddress, address _zroPaymentAddress, bytes calldata _adapterParams) external payable;\\n\\n    // @notice used by the messaging library to publish verified payload\\n    // @param _srcChainId - the source chain identifier\\n    // @param _srcAddress - the source contract (as bytes) at the source chain\\n    // @param _dstAddress - the address on destination chain\\n    // @param _nonce - the unbound message ordering nonce\\n    // @param _gasLimit - the gas limit for external contract execution\\n    // @param _payload - verified payload to send to the destination contract\\n    function receivePayload(uint256 _srcChainId, bytes calldata _srcAddress, address _dstAddress, uint64 _nonce, uint _gasLimit, bytes calldata _payload) external;\\n\\n    // @notice get the inboundNonce of a lzApp from a source chain which could be EVM or non-EVM chain\\n    // @param _srcChainId - the source chain identifier\\n    // @param _srcAddress - the source chain contract address\\n    function getInboundNonce(uint256 _srcChainId, bytes calldata _srcAddress) external view returns (uint64);\\n\\n    // @notice get the outboundNonce from this source chain which, consequently, is always an EVM\\n    // @param _srcAddress - the source chain contract address\\n    function getOutboundNonce(uint256 _dstChainId, address _srcAddress) external view returns (uint64);\\n\\n    // @notice gets a quote in source native gas, for the amount that send() requires to pay for message delivery\\n    // @param _dstChainId - the destination chain identifier\\n    // @param _userApplication - the user app address on this EVM chain\\n    // @param _payload - the custom message to send over LayerZero\\n    // @param _payInZRO - if false, user app pays the protocol fee in native token\\n    // @param _adapterParam - parameters for the adapter service, e.g. send some dust native token to dstChain\\n    function estimateFees(uint256 _dstChainId, address _userApplication, bytes calldata _payload, bool _payInZRO, bytes calldata _adapterParam) external view returns (uint nativeFee, uint zroFee);\\n\\n    // @notice get this Endpoint's immutable source identifier\\n    function getChainId() external view returns (uint256);\\n\\n    // @notice the interface to retry failed message on this Endpoint destination\\n    // @param _srcChainId - the source chain identifier\\n    // @param _srcAddress - the source chain contract address\\n    // @param _payload - the payload to be retried\\n    function retryPayload(uint256 _srcChainId, bytes calldata _srcAddress, bytes calldata _payload) external;\\n\\n    // @notice query if any STORED payload (message blocking) at the endpoint.\\n    // @param _srcChainId - the source chain identifier\\n    // @param _srcAddress - the source chain contract address\\n    function hasStoredPayload(uint256 _srcChainId, bytes calldata _srcAddress) external view returns (bool);\\n\\n    // @notice query if the _libraryAddress is valid for sending msgs.\\n    // @param _userApplication - the user app address on this EVM chain\\n    function getSendLibraryAddress(address _userApplication) external view returns (address);\\n\\n    // @notice query if the _libraryAddress is valid for receiving msgs.\\n    // @param _userApplication - the user app address on this EVM chain\\n    function getReceiveLibraryAddress(address _userApplication) external view returns (address);\\n\\n    // @notice query if the non-reentrancy guard for send() is on\\n    // @return true if the guard is on. false otherwise\\n    function isSendingPayload() external view returns (bool);\\n\\n    // @notice query if the non-reentrancy guard for receive() is on\\n    // @return true if the guard is on. false otherwise\\n    function isReceivingPayload() external view returns (bool);\\n\\n    // @notice get the configuration of the LayerZero messaging library of the specified version\\n    // @param _version - messaging library version\\n    // @param _chainId - the chainId for the pending config change\\n    // @param _userApplication - the contract address of the user application\\n    // @param _configType - type of configuration. every messaging library has its own convention.\\n    function getConfig(uint16 _version, uint256 _chainId, address _userApplication, uint _configType) external view returns (bytes memory);\\n\\n    // @notice get the send() LayerZero messaging library version\\n    // @param _userApplication - the contract address of the user application\\n    function getSendVersion(address _userApplication) external view returns (uint16);\\n\\n    // @notice get the lzReceive() LayerZero messaging library version\\n    // @param _userApplication - the contract address of the user application\\n    function getReceiveVersion(address _userApplication) external view returns (uint16);\\n}\\n\",\"keccak256\":\"0xa8a6cbb70bff5037a99ac4947a577e0e4437bf5c786ac039eb103d4b5f236e65\",\"license\":\"MIT\"},\"@layerzerolabs/solidity-examples/contracts/interfaces/ILayerZeroReceiver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.5.0;\\n\\ninterface ILayerZeroReceiver {\\n    // @notice LayerZero endpoint will invoke this function to deliver the message on the destination\\n    // @param _srcChainId - the source endpoint identifier\\n    // @param _srcAddress - the source sending contract address from the source chain\\n    // @param _nonce - the ordered message nonce\\n    // @param _payload - the signed payload is the UA bytes has encoded to be sent\\n    function lzReceive(uint256 _srcChainId, bytes calldata _srcAddress, uint64 _nonce, bytes calldata _payload) external;\\n}\\n\",\"keccak256\":\"0xada22be57781be8ed5e59c0f9ae8b3fbfd8600b8969ea13c6d39af5e6bafa434\",\"license\":\"MIT\"},\"@layerzerolabs/solidity-examples/contracts/interfaces/ILayerZeroUserApplicationConfig.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.5.0;\\n\\ninterface ILayerZeroUserApplicationConfig {\\n    // @notice set the configuration of the LayerZero messaging library of the specified version\\n    // @param _version - messaging library version\\n    // @param _chainId - the chainId for the pending config change\\n    // @param _configType - type of configuration. every messaging library has its own convention.\\n    // @param _config - configuration in the bytes. can encode arbitrary content.\\n    function setConfig(uint16 _version, uint256 _chainId, uint _configType, bytes calldata _config) external;\\n\\n    // @notice set the send() LayerZero messaging library version to _version\\n    // @param _version - new messaging library version\\n    function setSendVersion(uint16 _version) external;\\n\\n    // @notice set the lzReceive() LayerZero messaging library version to _version\\n    // @param _version - new messaging library version\\n    function setReceiveVersion(uint16 _version) external;\\n\\n    // @notice Only when the UA needs to resume the message flow in blocking mode and clear the stored payload\\n    // @param _srcChainId - the chainId of the source chain\\n    // @param _srcAddress - the contract address of the source contract at the source chain\\n    function forceResumeReceive(uint256 _srcChainId, bytes calldata _srcAddress) external;\\n}\\n\",\"keccak256\":\"0xa5c7da94f8eaa829755d165b858b2a20e73b693669b0b5c14c0e159f9572cca0\",\"license\":\"MIT\"},\"@layerzerolabs/solidity-examples/contracts/libraries/LzLib.sol\":{\"content\":\"// SPDX-License-Identifier: BUSL-1.1\\n\\npragma solidity >=0.6.0;\\npragma experimental ABIEncoderV2;\\n\\nlibrary LzLib {\\n    // LayerZero communication\\n    struct CallParams {\\n        address payable refundAddress;\\n        address zroPaymentAddress;\\n    }\\n\\n    //---------------------------------------------------------------------------\\n    // Address type handling\\n\\n    struct AirdropParams {\\n        uint airdropAmount;\\n        bytes32 airdropAddress;\\n    }\\n\\n    function buildAdapterParams(LzLib.AirdropParams memory _airdropParams, uint _uaGasLimit) internal pure returns (bytes memory adapterParams) {\\n        if (_airdropParams.airdropAmount == 0 && _airdropParams.airdropAddress == bytes32(0x0)) {\\n            adapterParams = buildDefaultAdapterParams(_uaGasLimit);\\n        } else {\\n            adapterParams = buildAirdropAdapterParams(_uaGasLimit, _airdropParams);\\n        }\\n    }\\n\\n    // Build Adapter Params\\n    function buildDefaultAdapterParams(uint _uaGas) internal pure returns (bytes memory) {\\n        // txType 1\\n        // bytes  [2       32      ]\\n        // fields [txType  extraGas]\\n        return abi.encodePacked(uint16(1), _uaGas);\\n    }\\n\\n    function buildAirdropAdapterParams(uint _uaGas, AirdropParams memory _params) internal pure returns (bytes memory) {\\n        require(_params.airdropAmount > 0, \\\"Airdrop amount must be greater than 0\\\");\\n        require(_params.airdropAddress != bytes32(0x0), \\\"Airdrop address must be set\\\");\\n\\n        // txType 2\\n        // bytes  [2       32        32            bytes[]         ]\\n        // fields [txType  extraGas  dstNativeAmt  dstNativeAddress]\\n        return abi.encodePacked(uint16(2), _uaGas, _params.airdropAmount, _params.airdropAddress);\\n    }\\n\\n    function getGasLimit(bytes memory _adapterParams) internal pure returns (uint gasLimit) {\\n        require(_adapterParams.length == 34 || _adapterParams.length > 66, \\\"Invalid adapterParams\\\");\\n        assembly {\\n            gasLimit := mload(add(_adapterParams, 34))\\n        }\\n    }\\n\\n    // Decode Adapter Params\\n    function decodeAdapterParams(bytes memory _adapterParams) internal pure returns (uint16 txType, uint uaGas, uint airdropAmount, address payable airdropAddress) {\\n        require(_adapterParams.length == 34 || _adapterParams.length > 66, \\\"Invalid adapterParams\\\");\\n        assembly {\\n            txType := mload(add(_adapterParams, 2))\\n            uaGas := mload(add(_adapterParams, 34))\\n        }\\n        require(txType == 1 || txType == 2, \\\"Unsupported txType\\\");\\n        require(uaGas > 0, \\\"Gas too low\\\");\\n\\n        if (txType == 2) {\\n            assembly {\\n                airdropAmount := mload(add(_adapterParams, 66))\\n                airdropAddress := mload(add(_adapterParams, 86))\\n            }\\n        }\\n    }\\n\\n    //---------------------------------------------------------------------------\\n    // Address type handling\\n    function bytes32ToAddress(bytes32 _bytes32Address) internal pure returns (address _address) {\\n        return address(uint160(uint(_bytes32Address)));\\n    }\\n\\n    function addressToBytes32(address _address) internal pure returns (bytes32 _bytes32Address) {\\n        return bytes32(uint(uint160(_address)));\\n    }\\n}\\n\",\"keccak256\":\"0xd7ed18db258ec3a628b0c5544eb14704180bfaed848014533ac90c2bd78d52aa\",\"license\":\"BUSL-1.1\"},\"@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport \\\"../interfaces/ILayerZeroReceiver.sol\\\";\\nimport \\\"../interfaces/ILayerZeroUserApplicationConfig.sol\\\";\\nimport \\\"../interfaces/ILayerZeroEndpoint.sol\\\";\\nimport \\\"../util/BytesLib.sol\\\";\\n\\n/*\\n * a generic LzReceiver implementation\\n */\\nabstract contract LzApp is Ownable, ILayerZeroReceiver, ILayerZeroUserApplicationConfig {\\n    using BytesLib for bytes;\\n\\n    ILayerZeroEndpoint public immutable lzEndpoint;\\n    mapping(uint256 => bytes) public trustedRemoteLookup;\\n    mapping(uint256 => mapping(uint16 => uint)) public minDstGasLookup;\\n    address public precrime;\\n\\n    event SetPrecrime(address precrime);\\n    event SetTrustedRemote(uint256 _remoteChainId, bytes _path);\\n    event SetTrustedRemoteAddress(uint256 _remoteChainId, bytes _remoteAddress);\\n    event SetMinDstGas(uint256 _dstChainId, uint16 _type, uint _minDstGas);\\n\\n    constructor(address _endpoint) {\\n        lzEndpoint = ILayerZeroEndpoint(_endpoint);\\n    }\\n\\n    function lzReceive(uint256 _srcChainId, bytes calldata _srcAddress, uint64 _nonce, bytes calldata _payload) public virtual override {\\n        // lzReceive must be called by the endpoint for security\\n        require(_msgSender() == address(lzEndpoint), \\\"LzApp: invalid endpoint caller\\\");\\n\\n        bytes memory trustedRemote = trustedRemoteLookup[_srcChainId];\\n        // if will still block the message pathway from (srcChainId, srcAddress). should not receive message from untrusted remote.\\n        require(_srcAddress.length == trustedRemote.length && trustedRemote.length > 0 && keccak256(_srcAddress) == keccak256(trustedRemote), \\\"LzApp: invalid source sending contract\\\");\\n\\n        _blockingLzReceive(_srcChainId, _srcAddress, _nonce, _payload);\\n    }\\n\\n    // abstract function - the default behaviour of LayerZero is blocking. See: NonblockingLzApp if you dont need to enforce ordered messaging\\n    function _blockingLzReceive(uint256 _srcChainId, bytes memory _srcAddress, uint64 _nonce, bytes memory _payload) internal virtual;\\n\\n    function _lzSend(uint256 _dstChainId, bytes memory _payload, address payable _refundAddress, address _zroPaymentAddress, bytes memory _adapterParams, uint _nativeFee) internal virtual {\\n        bytes memory trustedRemote = trustedRemoteLookup[_dstChainId];\\n        require(trustedRemote.length != 0, \\\"LzApp: destination chain is not a trusted source\\\");\\n        lzEndpoint.send{value: _nativeFee}(_dstChainId, trustedRemote, _payload, _refundAddress, _zroPaymentAddress, _adapterParams);\\n    }\\n\\n    function _checkGasLimit(uint256 _dstChainId, uint16 _type, bytes memory _adapterParams, uint _extraGas) internal view virtual {\\n        uint providedGasLimit = _getGasLimit(_adapterParams);\\n        uint minGasLimit = minDstGasLookup[_dstChainId][_type] + _extraGas;\\n        require(minGasLimit > 0, \\\"LzApp: minGasLimit not set\\\");\\n        require(providedGasLimit >= minGasLimit, \\\"LzApp: gas limit is too low\\\");\\n    }\\n\\n    function _getGasLimit(bytes memory _adapterParams) internal pure virtual returns (uint gasLimit) {\\n        require(_adapterParams.length >= 34, \\\"LzApp: invalid adapterParams\\\");\\n        assembly {\\n            gasLimit := mload(add(_adapterParams, 34))\\n        }\\n    }\\n\\n    //---------------------------UserApplication config----------------------------------------\\n    function getConfig(uint16 _version, uint256 _chainId, address, uint _configType) external view returns (bytes memory) {\\n        return lzEndpoint.getConfig(_version, _chainId, address(this), _configType);\\n    }\\n\\n    // generic config for LayerZero user Application\\n    function setConfig(uint16 _version, uint256 _chainId, uint _configType, bytes calldata _config) external override onlyOwner {\\n        lzEndpoint.setConfig(_version, _chainId, _configType, _config);\\n    }\\n\\n    function setSendVersion(uint16 _version) external override onlyOwner {\\n        lzEndpoint.setSendVersion(_version);\\n    }\\n\\n    function setReceiveVersion(uint16 _version) external override onlyOwner {\\n        lzEndpoint.setReceiveVersion(_version);\\n    }\\n\\n    function forceResumeReceive(uint256 _srcChainId, bytes calldata _srcAddress) external override onlyOwner {\\n        lzEndpoint.forceResumeReceive(_srcChainId, _srcAddress);\\n    }\\n\\n    // _path = abi.encodePacked(remoteAddress, localAddress)\\n    // this function set the trusted path for the cross-chain communication\\n    function setTrustedRemote(uint256 _srcChainId, bytes calldata _path) external onlyOwner {\\n        trustedRemoteLookup[_srcChainId] = _path;\\n        emit SetTrustedRemote(_srcChainId, _path);\\n    }\\n\\n    function setTrustedRemoteAddress(uint256 _remoteChainId, bytes calldata _remoteAddress) external onlyOwner {\\n        trustedRemoteLookup[_remoteChainId] = abi.encodePacked(_remoteAddress, address(this));\\n        emit SetTrustedRemoteAddress(_remoteChainId, _remoteAddress);\\n    }\\n\\n    function getTrustedRemoteAddress(uint256 _remoteChainId) external view returns (bytes memory) {\\n        bytes memory path = trustedRemoteLookup[_remoteChainId];\\n        require(path.length != 0, \\\"LzApp: no trusted path record\\\");\\n        return path.slice(0, path.length - 20); // the last 20 bytes should be address(this)\\n    }\\n\\n    function setPrecrime(address _precrime) external onlyOwner {\\n        precrime = _precrime;\\n        emit SetPrecrime(_precrime);\\n    }\\n\\n    function setMinDstGas(uint256 _dstChainId, uint16 _packetType, uint _minGas) external onlyOwner {\\n        require(_minGas > 0, \\\"LzApp: invalid minGas\\\");\\n        minDstGasLookup[_dstChainId][_packetType] = _minGas;\\n        emit SetMinDstGas(_dstChainId, _packetType, _minGas);\\n    }\\n\\n    //--------------------------- VIEW FUNCTION ----------------------------------------\\n    function isTrustedRemote(uint256 _srcChainId, bytes calldata _srcAddress) external view returns (bool) {\\n        bytes memory trustedSource = trustedRemoteLookup[_srcChainId];\\n        return keccak256(trustedSource) == keccak256(_srcAddress);\\n    }\\n}\\n\",\"keccak256\":\"0x15a6e4d554313f79b8804b464e151457f7ed31095bd52b3ce11852eec1fa7be5\",\"license\":\"MIT\"},\"@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"./LzApp.sol\\\";\\nimport \\\"../util/ExcessivelySafeCall.sol\\\";\\n\\n/*\\n * the default LayerZero messaging behaviour is blocking, i.e. any failed message will block the channel\\n * this abstract class try-catch all fail messages and store locally for future retry. hence, non-blocking\\n * NOTE: if the srcAddress is not configured properly, it will still block the message pathway from (srcChainId, srcAddress)\\n */\\nabstract contract NonblockingLzApp is LzApp {\\n    using ExcessivelySafeCall for address;\\n\\n    constructor(address _endpoint) LzApp(_endpoint) {}\\n\\n    mapping(uint256 => mapping(bytes => mapping(uint64 => bytes32))) public failedMessages;\\n\\n    event MessageFailed(uint256 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes _payload, bytes _reason);\\n    event RetryMessageSuccess(uint256 _srcChainId, bytes _srcAddress, uint64 _nonce, bytes32 _payloadHash);\\n\\n    // overriding the virtual function in LzReceiver\\n    function _blockingLzReceive(uint256 _srcChainId, bytes memory _srcAddress, uint64 _nonce, bytes memory _payload) internal virtual override {\\n        (bool success, bytes memory reason) = address(this).excessivelySafeCall(gasleft(), 150, abi.encodeWithSelector(this.nonblockingLzReceive.selector, _srcChainId, _srcAddress, _nonce, _payload));\\n        // try-catch all errors/exceptions\\n        if (!success) {\\n            _storeFailedMessage(_srcChainId, _srcAddress, _nonce, _payload, reason);\\n        }\\n    }\\n\\n    function _storeFailedMessage(uint256 _srcChainId, bytes memory _srcAddress, uint64 _nonce, bytes memory _payload, bytes memory _reason) internal virtual {\\n        failedMessages[_srcChainId][_srcAddress][_nonce] = keccak256(_payload);\\n        emit MessageFailed(_srcChainId, _srcAddress, _nonce, _payload, _reason);\\n    }\\n\\n    function nonblockingLzReceive(uint256 _srcChainId, bytes calldata _srcAddress, uint64 _nonce, bytes calldata _payload) public virtual {\\n        // only internal transaction\\n        require(_msgSender() == address(this), \\\"NonblockingLzApp: caller must be LzApp\\\");\\n        _nonblockingLzReceive(_srcChainId, _srcAddress, _nonce, _payload);\\n    }\\n\\n    //@notice override this function\\n    function _nonblockingLzReceive(uint256 _srcChainId, bytes memory _srcAddress, uint64 _nonce, bytes memory _payload) internal virtual;\\n\\n    function retryMessage(uint256 _srcChainId, bytes calldata _srcAddress, uint64 _nonce, bytes calldata _payload) public payable virtual {\\n        // assert there is message to retry\\n        bytes32 payloadHash = failedMessages[_srcChainId][_srcAddress][_nonce];\\n        require(payloadHash != bytes32(0), \\\"NonblockingLzApp: no stored message\\\");\\n        require(keccak256(_payload) == payloadHash, \\\"NonblockingLzApp: invalid payload\\\");\\n        // clear the stored message\\n        failedMessages[_srcChainId][_srcAddress][_nonce] = bytes32(0);\\n        // execute the message. revert if it fails again\\n        _nonblockingLzReceive(_srcChainId, _srcAddress, _nonce, _payload);\\n        emit RetryMessageSuccess(_srcChainId, _srcAddress, _nonce, payloadHash);\\n    }\\n}\\n\",\"keccak256\":\"0x9b852aa906d9610b897145c067d0b149f83cfabaa0ba3addeddc9de99f437d80\",\"license\":\"MIT\"},\"@layerzerolabs/solidity-examples/contracts/util/BytesLib.sol\":{\"content\":\"// SPDX-License-Identifier: Unlicense\\n/*\\n * @title Solidity Bytes Arrays Utils\\n * @author Gon\\u00e7alo S\\u00e1 <goncalo.sa@consensys.net>\\n *\\n * @dev Bytes tightly packed arrays utility library for ethereum contracts written in Solidity.\\n *      The library lets you concatenate, slice and type cast bytes arrays both in memory and storage.\\n */\\npragma solidity >=0.8.0 <0.9.0;\\n\\n\\nlibrary BytesLib {\\n    function concat(\\n        bytes memory _preBytes,\\n        bytes memory _postBytes\\n    )\\n    internal\\n    pure\\n    returns (bytes memory)\\n    {\\n        bytes memory tempBytes;\\n\\n        assembly {\\n        // Get a location of some free memory and store it in tempBytes as\\n        // Solidity does for memory variables.\\n            tempBytes := mload(0x40)\\n\\n        // Store the length of the first bytes array at the beginning of\\n        // the memory for tempBytes.\\n            let length := mload(_preBytes)\\n            mstore(tempBytes, length)\\n\\n        // Maintain a memory counter for the current write location in the\\n        // temp bytes array by adding the 32 bytes for the array length to\\n        // the starting location.\\n            let mc := add(tempBytes, 0x20)\\n        // Stop copying when the memory counter reaches the length of the\\n        // first bytes array.\\n            let end := add(mc, length)\\n\\n            for {\\n            // Initialize a copy counter to the start of the _preBytes data,\\n            // 32 bytes into its memory.\\n                let cc := add(_preBytes, 0x20)\\n            } lt(mc, end) {\\n            // Increase both counters by 32 bytes each iteration.\\n                mc := add(mc, 0x20)\\n                cc := add(cc, 0x20)\\n            } {\\n            // Write the _preBytes data into the tempBytes memory 32 bytes\\n            // at a time.\\n                mstore(mc, mload(cc))\\n            }\\n\\n        // Add the length of _postBytes to the current length of tempBytes\\n        // and store it as the new length in the first 32 bytes of the\\n        // tempBytes memory.\\n            length := mload(_postBytes)\\n            mstore(tempBytes, add(length, mload(tempBytes)))\\n\\n        // Move the memory counter back from a multiple of 0x20 to the\\n        // actual end of the _preBytes data.\\n            mc := end\\n        // Stop copying when the memory counter reaches the new combined\\n        // length of the arrays.\\n            end := add(mc, length)\\n\\n            for {\\n                let cc := add(_postBytes, 0x20)\\n            } lt(mc, end) {\\n                mc := add(mc, 0x20)\\n                cc := add(cc, 0x20)\\n            } {\\n                mstore(mc, mload(cc))\\n            }\\n\\n        // Update the free-memory pointer by padding our last write location\\n        // to 32 bytes: add 31 bytes to the end of tempBytes to move to the\\n        // next 32 byte block, then round down to the nearest multiple of\\n        // 32. If the sum of the length of the two arrays is zero then add\\n        // one before rounding down to leave a blank 32 bytes (the length block with 0).\\n            mstore(0x40, and(\\n            add(add(end, iszero(add(length, mload(_preBytes)))), 31),\\n            not(31) // Round down to the nearest 32 bytes.\\n            ))\\n        }\\n\\n        return tempBytes;\\n    }\\n\\n    function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal {\\n        assembly {\\n        // Read the first 32 bytes of _preBytes storage, which is the length\\n        // of the array. (We don't need to use the offset into the slot\\n        // because arrays use the entire slot.)\\n            let fslot := sload(_preBytes.slot)\\n        // Arrays of 31 bytes or less have an even value in their slot,\\n        // while longer arrays have an odd value. The actual length is\\n        // the slot divided by two for odd values, and the lowest order\\n        // byte divided by two for even values.\\n        // If the slot is even, bitwise and the slot with 255 and divide by\\n        // two to get the length. If the slot is odd, bitwise and the slot\\n        // with -1 and divide by two.\\n            let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\\n            let mlength := mload(_postBytes)\\n            let newlength := add(slength, mlength)\\n        // slength can contain both the length and contents of the array\\n        // if length < 32 bytes so let's prepare for that\\n        // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\\n            switch add(lt(slength, 32), lt(newlength, 32))\\n            case 2 {\\n            // Since the new array still fits in the slot, we just need to\\n            // update the contents of the slot.\\n            // uint256(bytes_storage) = uint256(bytes_storage) + uint256(bytes_memory) + new_length\\n                sstore(\\n                _preBytes.slot,\\n                // all the modifications to the slot are inside this\\n                // next block\\n                add(\\n                // we can just add to the slot contents because the\\n                // bytes we want to change are the LSBs\\n                fslot,\\n                add(\\n                mul(\\n                div(\\n                // load the bytes from memory\\n                mload(add(_postBytes, 0x20)),\\n                // zero all bytes to the right\\n                exp(0x100, sub(32, mlength))\\n                ),\\n                // and now shift left the number of bytes to\\n                // leave space for the length in the slot\\n                exp(0x100, sub(32, newlength))\\n                ),\\n                // increase length by the double of the memory\\n                // bytes length\\n                mul(mlength, 2)\\n                )\\n                )\\n                )\\n            }\\n            case 1 {\\n            // The stored value fits in the slot, but the combined value\\n            // will exceed it.\\n            // get the keccak hash to get the contents of the array\\n                mstore(0x0, _preBytes.slot)\\n                let sc := add(keccak256(0x0, 0x20), div(slength, 32))\\n\\n            // save new length\\n                sstore(_preBytes.slot, add(mul(newlength, 2), 1))\\n\\n            // The contents of the _postBytes array start 32 bytes into\\n            // the structure. Our first read should obtain the `submod`\\n            // bytes that can fit into the unused space in the last word\\n            // of the stored array. To get this, we read 32 bytes starting\\n            // from `submod`, so the data we read overlaps with the array\\n            // contents by `submod` bytes. Masking the lowest-order\\n            // `submod` bytes allows us to add that value directly to the\\n            // stored value.\\n\\n                let submod := sub(32, slength)\\n                let mc := add(_postBytes, submod)\\n                let end := add(_postBytes, mlength)\\n                let mask := sub(exp(0x100, submod), 1)\\n\\n                sstore(\\n                sc,\\n                add(\\n                and(\\n                fslot,\\n                0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00\\n                ),\\n                and(mload(mc), mask)\\n                )\\n                )\\n\\n                for {\\n                    mc := add(mc, 0x20)\\n                    sc := add(sc, 1)\\n                } lt(mc, end) {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } {\\n                    sstore(sc, mload(mc))\\n                }\\n\\n                mask := exp(0x100, sub(mc, end))\\n\\n                sstore(sc, mul(div(mload(mc), mask), mask))\\n            }\\n            default {\\n            // get the keccak hash to get the contents of the array\\n                mstore(0x0, _preBytes.slot)\\n            // Start copying to the last used word of the stored array.\\n                let sc := add(keccak256(0x0, 0x20), div(slength, 32))\\n\\n            // save new length\\n                sstore(_preBytes.slot, add(mul(newlength, 2), 1))\\n\\n            // Copy over the first `submod` bytes of the new data as in\\n            // case 1 above.\\n                let slengthmod := mod(slength, 32)\\n                let mlengthmod := mod(mlength, 32)\\n                let submod := sub(32, slengthmod)\\n                let mc := add(_postBytes, submod)\\n                let end := add(_postBytes, mlength)\\n                let mask := sub(exp(0x100, submod), 1)\\n\\n                sstore(sc, add(sload(sc), and(mload(mc), mask)))\\n\\n                for {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } lt(mc, end) {\\n                    sc := add(sc, 1)\\n                    mc := add(mc, 0x20)\\n                } {\\n                    sstore(sc, mload(mc))\\n                }\\n\\n                mask := exp(0x100, sub(mc, end))\\n\\n                sstore(sc, mul(div(mload(mc), mask), mask))\\n            }\\n        }\\n    }\\n\\n    function slice(\\n        bytes memory _bytes,\\n        uint256 _start,\\n        uint256 _length\\n    )\\n    internal\\n    pure\\n    returns (bytes memory)\\n    {\\n        require(_length + 31 >= _length, \\\"slice_overflow\\\");\\n        require(_bytes.length >= _start + _length, \\\"slice_outOfBounds\\\");\\n\\n        bytes memory tempBytes;\\n\\n        assembly {\\n            switch iszero(_length)\\n            case 0 {\\n            // Get a location of some free memory and store it in tempBytes as\\n            // Solidity does for memory variables.\\n                tempBytes := mload(0x40)\\n\\n            // The first word of the slice result is potentially a partial\\n            // word read from the original array. To read it, we calculate\\n            // the length of that partial word and start copying that many\\n            // bytes into the array. The first word we copy will start with\\n            // data we don't care about, but the last `lengthmod` bytes will\\n            // land at the beginning of the contents of the new array. When\\n            // we're done copying, we overwrite the full first word with\\n            // the actual length of the slice.\\n                let lengthmod := and(_length, 31)\\n\\n            // The multiplication in the next line is necessary\\n            // because when slicing multiples of 32 bytes (lengthmod == 0)\\n            // the following copy loop was copying the origin's length\\n            // and then ending prematurely not copying everything it should.\\n                let mc := add(add(tempBytes, lengthmod), mul(0x20, iszero(lengthmod)))\\n                let end := add(mc, _length)\\n\\n                for {\\n                // The multiplication in the next line has the same exact purpose\\n                // as the one above.\\n                    let cc := add(add(add(_bytes, lengthmod), mul(0x20, iszero(lengthmod))), _start)\\n                } lt(mc, end) {\\n                    mc := add(mc, 0x20)\\n                    cc := add(cc, 0x20)\\n                } {\\n                    mstore(mc, mload(cc))\\n                }\\n\\n                mstore(tempBytes, _length)\\n\\n            //update free-memory pointer\\n            //allocating the array padded to 32 bytes like the compiler does now\\n                mstore(0x40, and(add(mc, 31), not(31)))\\n            }\\n            //if we want a zero-length slice let's just return a zero-length array\\n            default {\\n                tempBytes := mload(0x40)\\n            //zero out the 32 bytes slice we are about to return\\n            //we need to do it because Solidity does not garbage collect\\n                mstore(tempBytes, 0)\\n\\n                mstore(0x40, add(tempBytes, 0x20))\\n            }\\n        }\\n\\n        return tempBytes;\\n    }\\n\\n    function toAddress(bytes memory _bytes, uint256 _start) internal pure returns (address) {\\n        require(_bytes.length >= _start + 20, \\\"toAddress_outOfBounds\\\");\\n        address tempAddress;\\n\\n        assembly {\\n            tempAddress := div(mload(add(add(_bytes, 0x20), _start)), 0x1000000000000000000000000)\\n        }\\n\\n        return tempAddress;\\n    }\\n\\n    function toUint8(bytes memory _bytes, uint256 _start) internal pure returns (uint8) {\\n        require(_bytes.length >= _start + 1 , \\\"toUint8_outOfBounds\\\");\\n        uint8 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x1), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint16(bytes memory _bytes, uint256 _start) internal pure returns (uint16) {\\n        require(_bytes.length >= _start + 2, \\\"toUint16_outOfBounds\\\");\\n        uint16 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x2), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint32(bytes memory _bytes, uint256 _start) internal pure returns (uint32) {\\n        require(_bytes.length >= _start + 4, \\\"toUint32_outOfBounds\\\");\\n        uint32 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x4), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint64(bytes memory _bytes, uint256 _start) internal pure returns (uint64) {\\n        require(_bytes.length >= _start + 8, \\\"toUint64_outOfBounds\\\");\\n        uint64 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x8), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint96(bytes memory _bytes, uint256 _start) internal pure returns (uint96) {\\n        require(_bytes.length >= _start + 12, \\\"toUint96_outOfBounds\\\");\\n        uint96 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0xc), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint128(bytes memory _bytes, uint256 _start) internal pure returns (uint128) {\\n        require(_bytes.length >= _start + 16, \\\"toUint128_outOfBounds\\\");\\n        uint128 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x10), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toUint256(bytes memory _bytes, uint256 _start) internal pure returns (uint256) {\\n        require(_bytes.length >= _start + 32, \\\"toUint256_outOfBounds\\\");\\n        uint256 tempUint;\\n\\n        assembly {\\n            tempUint := mload(add(add(_bytes, 0x20), _start))\\n        }\\n\\n        return tempUint;\\n    }\\n\\n    function toBytes32(bytes memory _bytes, uint256 _start) internal pure returns (bytes32) {\\n        require(_bytes.length >= _start + 32, \\\"toBytes32_outOfBounds\\\");\\n        bytes32 tempBytes32;\\n\\n        assembly {\\n            tempBytes32 := mload(add(add(_bytes, 0x20), _start))\\n        }\\n\\n        return tempBytes32;\\n    }\\n\\n    function equal(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bool) {\\n        bool success = true;\\n\\n        assembly {\\n            let length := mload(_preBytes)\\n\\n        // if lengths don't match the arrays are not equal\\n            switch eq(length, mload(_postBytes))\\n            case 1 {\\n            // cb is a circuit breaker in the for loop since there's\\n            //  no said feature for inline assembly loops\\n            // cb = 1 - don't breaker\\n            // cb = 0 - break\\n                let cb := 1\\n\\n                let mc := add(_preBytes, 0x20)\\n                let end := add(mc, length)\\n\\n                for {\\n                    let cc := add(_postBytes, 0x20)\\n                // the next line is the loop condition:\\n                // while(uint256(mc < end) + cb == 2)\\n                } eq(add(lt(mc, end), cb), 2) {\\n                    mc := add(mc, 0x20)\\n                    cc := add(cc, 0x20)\\n                } {\\n                // if any of these checks fails then arrays are not equal\\n                    if iszero(eq(mload(mc), mload(cc))) {\\n                    // unsuccess:\\n                        success := 0\\n                        cb := 0\\n                    }\\n                }\\n            }\\n            default {\\n            // unsuccess:\\n                success := 0\\n            }\\n        }\\n\\n        return success;\\n    }\\n\\n    function equalStorage(\\n        bytes storage _preBytes,\\n        bytes memory _postBytes\\n    )\\n    internal\\n    view\\n    returns (bool)\\n    {\\n        bool success = true;\\n\\n        assembly {\\n        // we know _preBytes_offset is 0\\n            let fslot := sload(_preBytes.slot)\\n        // Decode the length of the stored array like in concatStorage().\\n            let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\\n            let mlength := mload(_postBytes)\\n\\n        // if lengths don't match the arrays are not equal\\n            switch eq(slength, mlength)\\n            case 1 {\\n            // slength can contain both the length and contents of the array\\n            // if length < 32 bytes so let's prepare for that\\n            // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\\n                if iszero(iszero(slength)) {\\n                    switch lt(slength, 32)\\n                    case 1 {\\n                    // blank the last byte which is the length\\n                        fslot := mul(div(fslot, 0x100), 0x100)\\n\\n                        if iszero(eq(fslot, mload(add(_postBytes, 0x20)))) {\\n                        // unsuccess:\\n                            success := 0\\n                        }\\n                    }\\n                    default {\\n                    // cb is a circuit breaker in the for loop since there's\\n                    //  no said feature for inline assembly loops\\n                    // cb = 1 - don't breaker\\n                    // cb = 0 - break\\n                        let cb := 1\\n\\n                    // get the keccak hash to get the contents of the array\\n                        mstore(0x0, _preBytes.slot)\\n                        let sc := keccak256(0x0, 0x20)\\n\\n                        let mc := add(_postBytes, 0x20)\\n                        let end := add(mc, mlength)\\n\\n                    // the next line is the loop condition:\\n                    // while(uint256(mc < end) + cb == 2)\\n                        for {} eq(add(lt(mc, end), cb), 2) {\\n                            sc := add(sc, 1)\\n                            mc := add(mc, 0x20)\\n                        } {\\n                            if iszero(eq(sload(sc), mload(mc))) {\\n                            // unsuccess:\\n                                success := 0\\n                                cb := 0\\n                            }\\n                        }\\n                    }\\n                }\\n            }\\n            default {\\n            // unsuccess:\\n                success := 0\\n            }\\n        }\\n\\n        return success;\\n    }\\n}\\n\",\"keccak256\":\"0x2255aadad70e87ed42b158776330175644b07fbbc7e77ed32cd6330974abbcee\",\"license\":\"Unlicense\"},\"@layerzerolabs/solidity-examples/contracts/util/ExcessivelySafeCall.sol\":{\"content\":\"// SPDX-License-Identifier: MIT OR Apache-2.0\\npragma solidity >=0.7.6;\\n\\nlibrary ExcessivelySafeCall {\\n    uint256 constant LOW_28_MASK =\\n    0x00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff;\\n\\n    /// @notice Use when you _really_ really _really_ don't trust the called\\n    /// contract. This prevents the called contract from causing reversion of\\n    /// the caller in as many ways as we can.\\n    /// @dev The main difference between this and a solidity low-level call is\\n    /// that we limit the number of bytes that the callee can cause to be\\n    /// copied to caller memory. This prevents stupid things like malicious\\n    /// contracts returning 10,000,000 bytes causing a local OOG when copying\\n    /// to memory.\\n    /// @param _target The address to call\\n    /// @param _gas The amount of gas to forward to the remote contract\\n    /// @param _maxCopy The maximum number of bytes of returndata to copy\\n    /// to memory.\\n    /// @param _calldata The data to send to the remote contract\\n    /// @return success and returndata, as `.call()`. Returndata is capped to\\n    /// `_maxCopy` bytes.\\n    function excessivelySafeCall(\\n        address _target,\\n        uint256 _gas,\\n        uint16 _maxCopy,\\n        bytes memory _calldata\\n    ) internal returns (bool, bytes memory) {\\n        // set up for assembly call\\n        uint256 _toCopy;\\n        bool _success;\\n        bytes memory _returnData = new bytes(_maxCopy);\\n        // dispatch message to recipient\\n        // by assembly calling \\\"handle\\\" function\\n        // we call via assembly to avoid memcopying a very large returndata\\n        // returned by a malicious contract\\n        assembly {\\n            _success := call(\\n            _gas, // gas\\n            _target, // recipient\\n            0, // ether value\\n            add(_calldata, 0x20), // inloc\\n            mload(_calldata), // inlen\\n            0, // outloc\\n            0 // outlen\\n            )\\n        // limit our copy to 256 bytes\\n            _toCopy := returndatasize()\\n            if gt(_toCopy, _maxCopy) {\\n                _toCopy := _maxCopy\\n            }\\n        // Store the length of the copied bytes\\n            mstore(_returnData, _toCopy)\\n        // copy the bytes from returndata[0:_toCopy]\\n            returndatacopy(add(_returnData, 0x20), 0, _toCopy)\\n        }\\n        return (_success, _returnData);\\n    }\\n\\n    /// @notice Use when you _really_ really _really_ don't trust the called\\n    /// contract. This prevents the called contract from causing reversion of\\n    /// the caller in as many ways as we can.\\n    /// @dev The main difference between this and a solidity low-level call is\\n    /// that we limit the number of bytes that the callee can cause to be\\n    /// copied to caller memory. This prevents stupid things like malicious\\n    /// contracts returning 10,000,000 bytes causing a local OOG when copying\\n    /// to memory.\\n    /// @param _target The address to call\\n    /// @param _gas The amount of gas to forward to the remote contract\\n    /// @param _maxCopy The maximum number of bytes of returndata to copy\\n    /// to memory.\\n    /// @param _calldata The data to send to the remote contract\\n    /// @return success and returndata, as `.call()`. Returndata is capped to\\n    /// `_maxCopy` bytes.\\n    function excessivelySafeStaticCall(\\n        address _target,\\n        uint256 _gas,\\n        uint16 _maxCopy,\\n        bytes memory _calldata\\n    ) internal view returns (bool, bytes memory) {\\n        // set up for assembly call\\n        uint256 _toCopy;\\n        bool _success;\\n        bytes memory _returnData = new bytes(_maxCopy);\\n        // dispatch message to recipient\\n        // by assembly calling \\\"handle\\\" function\\n        // we call via assembly to avoid memcopying a very large returndata\\n        // returned by a malicious contract\\n        assembly {\\n            _success := staticcall(\\n            _gas, // gas\\n            _target, // recipient\\n            add(_calldata, 0x20), // inloc\\n            mload(_calldata), // inlen\\n            0, // outloc\\n            0 // outlen\\n            )\\n        // limit our copy to 256 bytes\\n            _toCopy := returndatasize()\\n            if gt(_toCopy, _maxCopy) {\\n                _toCopy := _maxCopy\\n            }\\n        // Store the length of the copied bytes\\n            mstore(_returnData, _toCopy)\\n        // copy the bytes from returndata[0:_toCopy]\\n            returndatacopy(add(_returnData, 0x20), 0, _toCopy)\\n        }\\n        return (_success, _returnData);\\n    }\\n\\n    /**\\n     * @notice Swaps function selectors in encoded contract calls\\n     * @dev Allows reuse of encoded calldata for functions with identical\\n     * argument types but different names. It simply swaps out the first 4 bytes\\n     * for the new selector. This function modifies memory in place, and should\\n     * only be used with caution.\\n     * @param _newSelector The new 4-byte selector\\n     * @param _buf The encoded contract args\\n     */\\n    function swapSelector(bytes4 _newSelector, bytes memory _buf)\\n    internal\\n    pure\\n    {\\n        require(_buf.length >= 4);\\n        uint256 _mask = LOW_28_MASK;\\n        assembly {\\n        // load the first word of\\n            let _word := mload(add(_buf, 0x20))\\n        // mask out the top 4 bytes\\n        // /x\\n            _word := and(_word, _mask)\\n            _word := or(_newSelector, _word)\\n            mstore(add(_buf, 0x20), _word)\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x23942250ddd277c443fa27c6b4ab51e6b3b5e654548b6b9e8d785a88ebec4dfe\",\"license\":\"MIT OR Apache-2.0\"},\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    constructor() {\\n        _transferOwnership(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions anymore. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby removing any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\"},\"@openzeppelin/contracts/security/ReentrancyGuard.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (security/ReentrancyGuard.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuard {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant _NOT_ENTERED = 1;\\n    uint256 private constant _ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    constructor() {\\n        _status = _NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and making it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        _nonReentrantBefore();\\n        _;\\n        _nonReentrantAfter();\\n    }\\n\\n    function _nonReentrantBefore() private {\\n        // On the first call to nonReentrant, _status will be _NOT_ENTERED\\n        require(_status != _ENTERED, \\\"ReentrancyGuard: reentrant call\\\");\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = _ENTERED;\\n    }\\n\\n    function _nonReentrantAfter() private {\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = _NOT_ENTERED;\\n    }\\n}\\n\",\"keccak256\":\"0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.6.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 amount\\n    ) external returns (bool);\\n}\\n\",\"keccak256\":\"0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\"},\"contracts/TokenBridgeBase.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\nimport {ReentrancyGuard} from \\\"@openzeppelin/contracts/security/ReentrancyGuard.sol\\\";\\nimport {NonblockingLzApp} from \\\"@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol\\\";\\n\\n/// @dev An abstract contract containing a common functionality used by OriginalTokenBridge and WrappedTokenBridge\\nabstract contract TokenBridgeBase is NonblockingLzApp, ReentrancyGuard {\\n    /// @notice A packet type used to identify messages requesting minting of wrapped tokens\\n    uint8 public constant PT_MINT = 0;\\n\\n    /// @notice A packet type used to identify messages requesting unlocking of original tokens\\n    uint8 public constant PT_UNLOCK = 1;\\n\\n    bool public useCustomAdapterParams;\\n\\n    event SetUseCustomAdapterParams(bool useCustomAdapterParams);\\n\\n    constructor(address _endpoint) NonblockingLzApp(_endpoint) {}\\n\\n    /// @notice Sets the `useCustomAdapterParams` flag indicating whether the contract uses custom adapter parameters or the default ones\\n    /// @dev Can be called only by the bridge owner\\n    function setUseCustomAdapterParams(bool _useCustomAdapterParams) external onlyOwner {\\n        useCustomAdapterParams = _useCustomAdapterParams;\\n        emit SetUseCustomAdapterParams(_useCustomAdapterParams);\\n    }\\n\\n    /// @dev Checks `adapterParams` for correctness\\n    function _checkAdapterParams(uint256 dstChainId, uint16 pkType, bytes memory adapterParams) internal virtual {\\n        if (useCustomAdapterParams) {\\n            _checkGasLimit(dstChainId, pkType, adapterParams, 0);\\n        } else {\\n            require(adapterParams.length == 0, \\\"TokenBridgeBase: adapterParams must be empty\\\");\\n        }\\n    }\\n\\n    /// @dev Overrides the renounce ownership logic inherited from openZeppelin `Ownable`\\n    function renounceOwnership() public override onlyOwner {}\\n}\",\"keccak256\":\"0xd8b9f3bf41702b1b23fba102f008e57b3b232fc82c45abcd55444c31926f6192\",\"license\":\"MIT\"},\"contracts/WrappedTokenBridge.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\nimport {IERC20} from \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport {LzLib} from \\\"@layerzerolabs/solidity-examples/contracts/libraries/LzLib.sol\\\";\\nimport {TokenBridgeBase} from \\\"./TokenBridgeBase.sol\\\";\\nimport {IWrappedERC20} from \\\"./interfaces/IWrappedERC20.sol\\\";\\n\\n/// @dev Mints a wrapped token when a message received from a remote chain and burns a wrapped token when bridging to a remote chain\\ncontract WrappedTokenBridge is TokenBridgeBase {\\n    /// @notice Total bps representing 100%\\n    uint16 public constant TOTAL_BPS = 10000;\\n\\n    /// @notice An optional fee charged on withdrawal, expressed in bps. E.g., 1bps = 0.01%\\n    uint16 public withdrawalFeeBps;\\n\\n    /// @notice Tokens that can be bridged\\n    /// @dev [local token] => [remote chain] => [remote token]\\n    mapping(address => mapping(uint256 => address)) public localToRemote;\\n\\n    /// @notice Tokens that can be bridged\\n    /// @dev [remote token] => [remote chain] => [local token]\\n    mapping(address => mapping(uint256 => address)) public remoteToLocal;\\n\\n    /// @notice Total value bridged per token and remote chains\\n    /// @dev [remote chain] => [remote token] => [bridged amount]\\n    mapping(uint256 => mapping(address => uint)) public totalValueLocked;\\n\\n    event WrapToken(address localToken, address remoteToken, uint256 remoteChainId, address to, uint amount);\\n    event UnwrapToken(address localToken, address remoteToken, uint256 remoteChainId, address to, uint amount);\\n    event RegisterToken(address localToken, uint256 remoteChainId, address remoteToken);\\n    event SetWithdrawalFeeBps(uint16 withdrawalFeeBps);\\n\\n    constructor(address _endpoint) TokenBridgeBase(_endpoint) {}\\n\\n    function registerToken(address localToken, uint256 remoteChainId, address remoteToken) external onlyOwner {\\n        require(localToken != address(0), \\\"WrappedTokenBridge: invalid local token\\\");\\n        require(remoteToken != address(0), \\\"WrappedTokenBridge: invalid remote token\\\");\\n        require(localToRemote[localToken][remoteChainId] == address(0) && remoteToLocal[remoteToken][remoteChainId] == address(0), \\\"WrappedTokenBridge: token already registered\\\");\\n\\n        localToRemote[localToken][remoteChainId] = remoteToken;\\n        remoteToLocal[remoteToken][remoteChainId] = localToken;\\n        emit RegisterToken(localToken, remoteChainId, remoteToken);\\n    }\\n\\n    function setWithdrawalFeeBps(uint16 _withdrawalFeeBps) external onlyOwner {\\n        require(_withdrawalFeeBps < TOTAL_BPS, \\\"WrappedTokenBridge: invalid withdrawal fee bps\\\");\\n        withdrawalFeeBps = _withdrawalFeeBps;\\n        emit SetWithdrawalFeeBps(_withdrawalFeeBps);\\n    }\\n\\n    function estimateBridgeFee(uint256 remoteChainId, bool useZro, bytes calldata adapterParams) external view returns (uint nativeFee, uint zroFee) {\\n        // Only the payload format matters when estimating fee, not the actual data\\n        bytes memory payload = abi.encode(PT_UNLOCK, address(this), address(this), 0, 0, false);\\n        return lzEndpoint.estimateFees(remoteChainId, address(this), payload, useZro, adapterParams);\\n    }\\n\\n    /// @notice Bridges `localToken` to the remote chain\\n    /// @dev Burns wrapped tokens and sends LZ message to the remote chain to unlock original tokens\\n    function bridge(address localToken, uint256 remoteChainId, uint amount, address to, bool unwrapWeth, LzLib.CallParams calldata callParams, bytes memory adapterParams) external payable nonReentrant {\\n        require(localToken != address(0), \\\"WrappedTokenBridge: invalid token\\\");\\n        require(to != address(0), \\\"WrappedTokenBridge: invalid to\\\");\\n        require(amount > 0, \\\"WrappedTokenBridge: invalid amount\\\");\\n        _checkAdapterParams(remoteChainId, PT_UNLOCK, adapterParams);\\n\\n        address remoteToken = localToRemote[localToken][remoteChainId];\\n        require(remoteToken != address(0), \\\"WrappedTokenBridge: token is not supported\\\");\\n        require(totalValueLocked[remoteChainId][remoteToken] >= amount, \\\"WrappedTokenBridge: insufficient liquidity on the destination\\\");\\n\\n        totalValueLocked[remoteChainId][remoteToken] -= amount;\\n        IWrappedERC20(localToken).burn(msg.sender, amount);\\n\\n        uint withdrawalAmount = amount;\\n        if (withdrawalFeeBps > 0) {\\n            uint withdrawalFee = (amount * withdrawalFeeBps) / TOTAL_BPS;\\n            withdrawalAmount -= withdrawalFee;\\n        }\\n\\n        bytes memory payload = abi.encode(PT_UNLOCK, remoteToken, to, withdrawalAmount, amount, unwrapWeth);\\n        _lzSend(remoteChainId, payload, callParams.refundAddress, callParams.zroPaymentAddress, adapterParams, msg.value);\\n        emit UnwrapToken(localToken, remoteToken, remoteChainId, to, amount);\\n    }\\n\\n    /// @notice Receives ERC20 tokens or ETH from the remote chain\\n    /// @dev Mints wrapped tokens in response to LZ message from the remote chain\\n    function _nonblockingLzReceive(uint256 srcChainId, bytes memory, uint64, bytes memory payload) internal virtual override {\\n        (uint8 packetType, address remoteToken, address to, uint amount) = abi.decode(payload, (uint8, address, address, uint));\\n        require(packetType == PT_MINT, \\\"WrappedTokenBridge: unknown packet type\\\");\\n\\n        address localToken = remoteToLocal[remoteToken][srcChainId];\\n        require(localToken != address(0), \\\"WrappedTokenBridge: token is not supported\\\");\\n\\n        totalValueLocked[srcChainId][remoteToken] += amount;\\n        IWrappedERC20(localToken).mint(to, amount);\\n\\n        emit WrapToken(localToken, remoteToken, srcChainId, to, amount);\\n    }\\n}\",\"keccak256\":\"0xee03ef019c3efb633d1b1f94fe048ec65522cfef61143ac326c1d843f6791e5b\",\"license\":\"MIT\"},\"contracts/interfaces/IWrappedERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\nimport {IERC20} from \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\n\\ninterface IWrappedERC20 is IERC20 {\\n    function mint(address _to, uint _amount) external;\\n\\n    function burn(address _from, uint _amount) external;\\n}\\n\",\"keccak256\":\"0x4b81d06696b2ad1bebbe83762ded7f28401e092112ae0b43c4bcde4a10d2244d\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a06040523480156200001157600080fd5b50604051620031ca380380620031ca8339810160408190526200003491620000ac565b80808062000042336200005c565b6001600160a01b03166080525050600160055550620000de565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b600060208284031215620000bf57600080fd5b81516001600160a01b0381168114620000d757600080fd5b9392505050565b608051613098620001326000396000818161053f01528181610772015281816107fb01528181610a8201528181610b46015281816111fe0152818161189201528181611b450152611f1601526130986000f3fe6080604052600436106102045760003560e01c8063950c8a7411610118578063dec07588116100a0578063eab45d9c1161006f578063eab45d9c146106b7578063ed629c5c146106d7578063eeed81c4146106f1578063f2fde38b14610711578063f717986e1461073157600080fd5b8063dec07588146105f0578063dfe6aa8814610610578063e540076e14610648578063e6e7dd001461069757600080fd5b8063b353aaa7116100e7578063b353aaa71461052d578063b39ac82914610561578063baf3292d146105a7578063d3cd52bc146105c7578063dc3d9e02146105dd57600080fd5b8063950c8a741461046b57806398b1f31c1461048b578063a0266645146104cc578063a0f4d4871461050d57600080fd5b806351df3b921161019b5780637025e0b51161016a5780637025e0b5146103d1578063715018a6146103e45780638365c638146103f95780638da5cb5b146104195780638f4570991461044b57600080fd5b806351df3b921461034f57806368ea28b01461037c5780636d1cc7d2146103915780636ed71955146103b157600080fd5b806332083d8e116101d757806332083d8e146102a3578063363dc905146102c357806338a7fcc2146102f357806346f6f9b51461032857600080fd5b806304336bb31461020957806307e0db171461024157806310ddb13714610263578063166b4ae814610283575b600080fd5b34801561021557600080fd5b5060065461022990610100900461ffff1681565b60405161ffff90911681526020015b60405180910390f35b34801561024d57600080fd5b5061026161025c36600461248d565b610751565b005b34801561026f57600080fd5b5061026161027e36600461248d565b6107da565b34801561028f57600080fd5b5061026161029e3660046124a8565b610832565b3480156102af57600080fd5b506102616102be366004612525565b6108ef565b3480156102cf57600080fd5b506102e36102de366004612525565b610966565b6040519015158152602001610238565b3480156102ff57600080fd5b5061031361030e366004612580565b610a2d565b60408051928352602083019190915201610238565b34801561033457600080fd5b5061033d600081565b60405160ff9091168152602001610238565b34801561035b57600080fd5b5061036f61036a3660046125ee565b610b16565b6040516102389190612684565b34801561038857600080fd5b5061033d600181565b34801561039d57600080fd5b506102616103ac366004612525565b610bc6565b3480156103bd57600080fd5b5061036f6103cc366004612697565b610c1b565b6102616103df366004612773565b610d2c565b3480156103f057600080fd5b506102616110f9565b34801561040557600080fd5b5061026161041436600461282d565b611103565b34801561042557600080fd5b506000546001600160a01b03165b6040516001600160a01b039091168152602001610238565b34801561045757600080fd5b50610261610466366004612525565b6111df565b34801561047757600080fd5b50600354610433906001600160a01b031681565b34801561049757600080fd5b506104336104a63660046128b9565b60076020908152600092835260408084209091529082529020546001600160a01b031681565b3480156104d857600080fd5b506104336104e73660046128b9565b60086020908152600092835260408084209091529082529020546001600160a01b031681565b34801561051957600080fd5b5061036f610528366004612697565b611265565b34801561053957600080fd5b506104337f000000000000000000000000000000000000000000000000000000000000000081565b34801561056d57600080fd5b5061059961057c3660046128e5565b600960209081526000928352604080842090915290825290205481565b604051908152602001610238565b3480156105b357600080fd5b506102616105c2366004612915565b6112ff565b3480156105d357600080fd5b5061022961271081565b6102616105eb36600461282d565b61135c565b3480156105fc57600080fd5b5061026161060b366004612932565b611568565b34801561061c57600080fd5b5061059961062b366004612974565b600260209081526000928352604080842090915290825290205481565b34801561065457600080fd5b506105996106633660046129a0565b6004602090815260009384526040808520845180860184018051928152908401958401959095209452929052825290205481565b3480156106a357600080fd5b506102616106b236600461248d565b611786565b3480156106c357600080fd5b506102616106d23660046129f6565b611846565b3480156106e357600080fd5b506006546102e39060ff1681565b3480156106fd57600080fd5b5061026161070c36600461282d565b61188f565b34801561071d57600080fd5b5061026161072c366004612915565b611aad565b34801561073d57600080fd5b5061026161074c366004612a11565b611b26565b610759611bbb565b6040516307e0db1760e01b815261ffff821660048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906307e0db17906024015b600060405180830381600087803b1580156107bf57600080fd5b505af11580156107d3573d6000803e3d6000fd5b5050505050565b6107e2611bbb565b6040516310ddb13760e01b815261ffff821660048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906310ddb137906024016107a5565b61083a611bbb565b600081116108875760405162461bcd60e51b81526020600482015260156024820152744c7a4170703a20696e76616c6964206d696e47617360581b60448201526064015b60405180910390fd5b600083815260026020908152604080832061ffff8616808552908352928190208490558051868152918201929092529081018290527ff719b08d0d2d4639fb0372e9830249577547a0d8fbbf001706fba5512090004a906060015b60405180910390a1505050565b6108f7611bbb565b81813060405160200161090c93929190612a78565b60408051601f198184030181529181526000858152600160205220906109329082612b1e565b507f4debf422f25b506edb14c37e511025fc519a36c0857d54766830f240a67a0c6a8383836040516108e293929190612c06565b6000838152600160205260408120805482919061098290612a9e565b80601f01602080910402602001604051908101604052809291908181526020018280546109ae90612a9e565b80156109fb5780601f106109d0576101008083540402835291602001916109fb565b820191906000526020600020905b8154815290600101906020018083116109de57829003601f168201915b505050505090508383604051610a12929190612c20565b60405180910390208180519060200120149150509392505050565b6040805160016020820152308183018190526060820181905260006080830181905260a0830181905260c08084018290528451808503909101815260e084019485905263568a0a1760e01b90945292839290917f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169163568a0a1791610ac8918b919086908c908c908c9060e401612c30565b6040805180830381865afa158015610ae4573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b089190612c82565b925092505094509492505050565b6040516328ef9dc960e11b815261ffff8516600482015260248101849052306044820152606481018290526060907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906351df3b9290608401600060405180830381865afa158015610b95573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610bbd9190810190612ca6565b95945050505050565b610bce611bbb565b6000838152600160205260409020610be7828483612d13565b507fd96cfe9f1a35384059e5c139c7ffa913a61868863bd5cf53e2564c1b1187221e8383836040516108e293929190612c06565b600081815260016020526040812080546060929190610c3990612a9e565b80601f0160208091040260200160405190810160405280929190818152602001828054610c6590612a9e565b8015610cb25780601f10610c8757610100808354040283529160200191610cb2565b820191906000526020600020905b815481529060010190602001808311610c9557829003601f168201915b505050505090508051600003610d0a5760405162461bcd60e51b815260206004820152601d60248201527f4c7a4170703a206e6f20747275737465642070617468207265636f7264000000604482015260640161087e565b610d25600060148351610d1d9190612de8565b839190611c15565b9392505050565b610d34611d22565b6001600160a01b038716610d945760405162461bcd60e51b815260206004820152602160248201527f57726170706564546f6b656e4272696467653a20696e76616c696420746f6b656044820152603760f91b606482015260840161087e565b6001600160a01b038416610dea5760405162461bcd60e51b815260206004820152601e60248201527f57726170706564546f6b656e4272696467653a20696e76616c696420746f0000604482015260640161087e565b60008511610e455760405162461bcd60e51b815260206004820152602260248201527f57726170706564546f6b656e4272696467653a20696e76616c696420616d6f756044820152611b9d60f21b606482015260840161087e565b610e5186600183611d7b565b6001600160a01b0380881660009081526007602090815260408083208a84529091529020541680610e945760405162461bcd60e51b815260040161087e90612e01565b60008781526009602090815260408083206001600160a01b0385168452909152902054861115610f2c5760405162461bcd60e51b815260206004820152603d60248201527f57726170706564546f6b656e4272696467653a20696e73756666696369656e7460448201527f206c6971756964697479206f6e207468652064657374696e6174696f6e000000606482015260840161087e565b60008781526009602090815260408083206001600160a01b038516845290915281208054889290610f5e908490612de8565b9091555050604051632770a7eb60e21b8152336004820152602481018790526001600160a01b03891690639dc29fac90604401600060405180830381600087803b158015610fab57600080fd5b505af1158015610fbf573d6000803e3d6000fd5b5050600654889250610100900461ffff1615905061100e5760065460009061271090610ff490610100900461ffff168a612e4b565b610ffe9190612e62565b905061100a8183612de8565b9150505b60408051600160208201526001600160a01b038085169282019290925290871660608201526080810182905260a0810188905285151560c082015260009060e00160408051601f19818403018152919052905061108a89826110736020890189612915565b61108360408a0160208b01612915565b8834611dfc565b604080516001600160a01b038c8116825285811660208301528183018c905289166060820152608081018a905290517f1b0cd6023bd8e23b3cd315607276058087c3a9602a4b6e193becdbeb6a29f1e89181900360a00190a15050506110f06001600555565b50505050505050565b611101611bbb565b565b3330146111615760405162461bcd60e51b815260206004820152602660248201527f4e6f6e626c6f636b696e674c7a4170703a2063616c6c6572206d7573742062656044820152650204c7a4170760d41b606482015260840161087e565b6111d78686868080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525050604080516020601f890181900481028201810190925287815289935091508790879081908401838280828437600092019190915250611f9292505050565b505050505050565b6111e7611bbb565b604051638f45709960e01b81526001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690638f4570999061123790869086908690600401612c06565b600060405180830381600087803b15801561125157600080fd5b505af11580156110f0573d6000803e3d6000fd5b6001602052600090815260409020805461127e90612a9e565b80601f01602080910402602001604051908101604052809291908181526020018280546112aa90612a9e565b80156112f75780601f106112cc576101008083540402835291602001916112f7565b820191906000526020600020905b8154815290600101906020018083116112da57829003601f168201915b505050505081565b611307611bbb565b600380546001600160a01b0319166001600160a01b0383169081179091556040519081527f5db758e995a17ec1ad84bdef7e8c3293a0bd6179bcce400dff5d4c3d87db726b906020015b60405180910390a150565b600086815260046020526040808220905161137a9088908890612c20565b90815260408051602092819003830190206001600160401b038716600090815292529020549050806113fa5760405162461bcd60e51b815260206004820152602360248201527f4e6f6e626c6f636b696e674c7a4170703a206e6f2073746f726564206d65737360448201526261676560e81b606482015260840161087e565b80838360405161140b929190612c20565b60405180910390201461146a5760405162461bcd60e51b815260206004820152602160248201527f4e6f6e626c6f636b696e674c7a4170703a20696e76616c6964207061796c6f616044820152601960fa1b606482015260840161087e565b60008781526004602052604080822090516114889089908990612c20565b90815260408051602092819003830181206001600160401b038916600090815290845282902093909355601f88018290048202830182019052868252611520918991899089908190840183828082843760009201919091525050604080516020601f8a018190048102820181019092528881528a935091508890889081908401838280828437600092019190915250611f9292505050565b7f85964bbb9f663dc45133d203c4499633f99a40f37422701ddfa5677b70a2e8d78787878785604051611557959493929190612e84565b60405180910390a150505050505050565b611570611bbb565b6001600160a01b0383166115d65760405162461bcd60e51b815260206004820152602760248201527f57726170706564546f6b656e4272696467653a20696e76616c6964206c6f636160448201526636103a37b5b2b760c91b606482015260840161087e565b6001600160a01b03811661163d5760405162461bcd60e51b815260206004820152602860248201527f57726170706564546f6b656e4272696467653a20696e76616c69642072656d6f6044820152673a32903a37b5b2b760c11b606482015260840161087e565b6001600160a01b0383811660009081526007602090815260408083208684529091529020541615801561169357506001600160a01b03818116600090815260086020908152604080832086845290915290205416155b6116f45760405162461bcd60e51b815260206004820152602c60248201527f57726170706564546f6b656e4272696467653a20746f6b656e20616c7265616460448201526b1e481c9959da5cdd195c995960a21b606482015260840161087e565b6001600160a01b038381166000818152600760209081526040808320878452825280832080546001600160a01b03199081169688169687179091558584526008835281842088855283529281902080549093168417909255815192835282018590528101919091527fee0f466d980e4e20d086c0e7c3300fea6db44ecc80114a632f1be9cdb922bbf6906060016108e2565b61178e611bbb565b61271061ffff8216106117fa5760405162461bcd60e51b815260206004820152602e60248201527f57726170706564546f6b656e4272696467653a20696e76616c6964207769746860448201526d64726177616c206665652062707360901b606482015260840161087e565b6006805462ffff00191661010061ffff8416908102919091179091556040519081527f6d0c3abfe7f8a420e34f51060ff6519e1b0f47249f7043e76abc83f61b9f99f790602001611351565b61184e611bbb565b6006805460ff19168215159081179091556040519081527f1584ad594a70cbe1e6515592e1272a987d922b097ead875069cebe8b40c004a490602001611351565b337f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316146119075760405162461bcd60e51b815260206004820152601e60248201527f4c7a4170703a20696e76616c696420656e64706f696e742063616c6c65720000604482015260640161087e565b6000868152600160205260408120805461192090612a9e565b80601f016020809104026020016040519081016040528092919081815260200182805461194c90612a9e565b80156119995780601f1061196e57610100808354040283529160200191611999565b820191906000526020600020905b81548152906001019060200180831161197c57829003601f168201915b505050505090508051868690501480156119b4575060008151115b80156119dc5750805160208201206040516119d29088908890612c20565b6040518091039020145b611a375760405162461bcd60e51b815260206004820152602660248201527f4c7a4170703a20696e76616c696420736f757263652073656e64696e6720636f6044820152651b9d1c9858dd60d21b606482015260840161087e565b6110f08787878080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525050604080516020601f8a018190048102820181019092528881528a93509150889088908190840183828082843760009201919091525061215892505050565b611ab5611bbb565b6001600160a01b038116611b1a5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b606482015260840161087e565b611b23816121d1565b50565b611b2e611bbb565b604051637b8bcc3760e11b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169063f717986e90611b829088908890889088908890600401612ebb565b600060405180830381600087803b158015611b9c57600080fd5b505af1158015611bb0573d6000803e3d6000fd5b505050505050505050565b6000546001600160a01b031633146111015760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015260640161087e565b606081611c2381601f612ef0565b1015611c625760405162461bcd60e51b815260206004820152600e60248201526d736c6963655f6f766572666c6f7760901b604482015260640161087e565b611c6c8284612ef0565b84511015611cb05760405162461bcd60e51b8152602060048201526011602482015270736c6963655f6f75744f66426f756e647360781b604482015260640161087e565b606082158015611ccf5760405191506000825260208201604052611d19565b6040519150601f8416801560200281840101858101878315602002848b0101015b81831015611d08578051835260209283019201611cf0565b5050858452601f01601f1916604052505b50949350505050565b600260055403611d745760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161087e565b6002600555565b60065460ff1615611d9857611d938383836000612221565b505050565b805115611d935760405162461bcd60e51b815260206004820152602c60248201527f546f6b656e427269646765426173653a2061646170746572506172616d73206d60448201526b75737420626520656d70747960a01b606482015260840161087e565b60008681526001602052604081208054611e1590612a9e565b80601f0160208091040260200160405190810160405280929190818152602001828054611e4190612a9e565b8015611e8e5780601f10611e6357610100808354040283529160200191611e8e565b820191906000526020600020905b815481529060010190602001808311611e7157829003601f168201915b505050505090508051600003611eff5760405162461bcd60e51b815260206004820152603060248201527f4c7a4170703a2064657374696e6174696f6e20636861696e206973206e6f742060448201526f61207472757374656420736f7572636560801b606482015260840161087e565b60405163654bc36560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169063654bc365908490611f57908b9086908c908c908c908c90600401612f03565b6000604051808303818588803b158015611f7057600080fd5b505af1158015611f84573d6000803e3d6000fd5b505050505050505050505050565b60008060008084806020019051810190611fac9190612f59565b9296509094509250905060ff8416156120175760405162461bcd60e51b815260206004820152602760248201527f57726170706564546f6b656e4272696467653a20756e6b6e6f776e207061636b6044820152666574207479706560c81b606482015260840161087e565b6001600160a01b0380841660009081526008602090815260408083208c8452909152902054168061205a5760405162461bcd60e51b815260040161087e90612e01565b60008981526009602090815260408083206001600160a01b03881684529091528120805484929061208c908490612ef0565b90915550506040516340c10f1960e01b81526001600160a01b038481166004830152602482018490528216906340c10f1990604401600060405180830381600087803b1580156120db57600080fd5b505af11580156120ef573d6000803e3d6000fd5b5050604080516001600160a01b03858116825288811660208301528183018e9052871660608201526080810186905290517f06e6ce497c880574a9853933f070471bf15f19852fea8ef238a81f7a01a13d8e93509081900360a0019150a1505050505050505050565b6000806121bb5a6096638365c63860e01b898989896040516024016121809493929190612fb2565b60408051601f198184030181529190526020810180516001600160e01b03166001600160e01b031990931692909217909152309291906122fb565b91509150816111d7576111d78686868685612385565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b600061222c8361241a565b600086815260026020908152604080832061ffff8916845290915281205491925090612259908490612ef0565b9050600081116122ab5760405162461bcd60e51b815260206004820152601a60248201527f4c7a4170703a206d696e4761734c696d6974206e6f7420736574000000000000604482015260640161087e565b808210156111d75760405162461bcd60e51b815260206004820152601b60248201527f4c7a4170703a20676173206c696d697420697320746f6f206c6f770000000000604482015260640161087e565b6000606060008060008661ffff166001600160401b03811115612320576123206126b0565b6040519080825280601f01601f19166020018201604052801561234a576020820181803683370190505b50905060008087516020890160008d8df191503d92508683111561236c578692505b828152826000602083013e909890975095505050505050565b818051906020012060046000878152602001908152602001600020856040516123ae9190612fec565b9081526040805191829003602090810183206001600160401b0388166000908152915220919091557f6db5472a51c00bdf9121aee3336b6c10821175f2bdcdc3862630936d4b1aef199061240b9087908790879087908790613008565b60405180910390a15050505050565b600060228251101561246e5760405162461bcd60e51b815260206004820152601c60248201527f4c7a4170703a20696e76616c69642061646170746572506172616d7300000000604482015260640161087e565b506022015190565b803561ffff8116811461248857600080fd5b919050565b60006020828403121561249f57600080fd5b610d2582612476565b6000806000606084860312156124bd57600080fd5b833592506124cd60208501612476565b9150604084013590509250925092565b60008083601f8401126124ef57600080fd5b5081356001600160401b0381111561250657600080fd5b60208301915083602082850101111561251e57600080fd5b9250929050565b60008060006040848603121561253a57600080fd5b8335925060208401356001600160401b0381111561255757600080fd5b612563868287016124dd565b9497909650939450505050565b8035801515811461248857600080fd5b6000806000806060858703121561259657600080fd5b843593506125a660208601612570565b925060408501356001600160401b038111156125c157600080fd5b6125cd878288016124dd565b95989497509550505050565b6001600160a01b0381168114611b2357600080fd5b6000806000806080858703121561260457600080fd5b61260d85612476565b9350602085013592506040850135612624816125d9565b9396929550929360600135925050565b60005b8381101561264f578181015183820152602001612637565b50506000910152565b60008151808452612670816020860160208601612634565b601f01601f19169290920160200192915050565b602081526000610d256020830184612658565b6000602082840312156126a957600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f191681016001600160401b03811182821017156126ee576126ee6126b0565b604052919050565b60006001600160401b0382111561270f5761270f6126b0565b50601f01601f191660200190565b600082601f83011261272e57600080fd5b813561274161273c826126f6565b6126c6565b81815284602083860101111561275657600080fd5b816020850160208301376000918101602001919091529392505050565b600080600080600080600087890361010081121561279057600080fd5b883561279b816125d9565b9750602089013596506040890135955060608901356127b9816125d9565b94506127c760808a01612570565b93506040609f19820112156127db57600080fd5b5060a08801915060e08801356001600160401b038111156127fb57600080fd5b6128078a828b0161271d565b91505092959891949750929550565b80356001600160401b038116811461248857600080fd5b6000806000806000806080878903121561284657600080fd5b8635955060208701356001600160401b038082111561286457600080fd5b6128708a838b016124dd565b909750955085915061288460408a01612816565b9450606089013591508082111561289a57600080fd5b506128a789828a016124dd565b979a9699509497509295939492505050565b600080604083850312156128cc57600080fd5b82356128d7816125d9565b946020939093013593505050565b600080604083850312156128f857600080fd5b82359150602083013561290a816125d9565b809150509250929050565b60006020828403121561292757600080fd5b8135610d25816125d9565b60008060006060848603121561294757600080fd5b8335612952816125d9565b9250602084013591506040840135612969816125d9565b809150509250925092565b6000806040838503121561298757600080fd5b8235915061299760208401612476565b90509250929050565b6000806000606084860312156129b557600080fd5b8335925060208401356001600160401b038111156129d257600080fd5b6129de8682870161271d565b9250506129ed60408501612816565b90509250925092565b600060208284031215612a0857600080fd5b610d2582612570565b600080600080600060808688031215612a2957600080fd5b612a3286612476565b9450602086013593506040860135925060608601356001600160401b03811115612a5b57600080fd5b612a67888289016124dd565b969995985093965092949392505050565b8284823760609190911b6bffffffffffffffffffffffff19169101908152601401919050565b600181811c90821680612ab257607f821691505b602082108103612ad257634e487b7160e01b600052602260045260246000fd5b50919050565b601f821115611d9357600081815260208120601f850160051c81016020861015612aff5750805b601f850160051c820191505b818110156111d757828155600101612b0b565b81516001600160401b03811115612b3757612b376126b0565b612b4b81612b458454612a9e565b84612ad8565b602080601f831160018114612b805760008415612b685750858301515b600019600386901b1c1916600185901b1785556111d7565b600085815260208120601f198616915b82811015612baf57888601518255948401946001909101908401612b90565b5085821015612bcd5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b838152604060208201526000610bbd604083018486612bdd565b8183823760009101908152919050565b8681526001600160a01b038616602082015260a060408201819052600090612c5a90830187612658565b85151560608401528281036080840152612c75818587612bdd565b9998505050505050505050565b60008060408385031215612c9557600080fd5b505080516020909101519092909150565b600060208284031215612cb857600080fd5b81516001600160401b03811115612cce57600080fd5b8201601f81018413612cdf57600080fd5b8051612ced61273c826126f6565b818152856020838501011115612d0257600080fd5b610bbd826020830160208601612634565b6001600160401b03831115612d2a57612d2a6126b0565b612d3e83612d388354612a9e565b83612ad8565b6000601f841160018114612d725760008515612d5a5750838201355b600019600387901b1c1916600186901b1783556107d3565b600083815260209020601f19861690835b82811015612da35786850135825560209485019460019092019101612d83565b5086821015612dc05760001960f88860031b161c19848701351681555b505060018560011b0183555050505050565b634e487b7160e01b600052601160045260246000fd5b81810381811115612dfb57612dfb612dd2565b92915050565b6020808252602a908201527f57726170706564546f6b656e4272696467653a20746f6b656e206973206e6f74604082015269081cdd5c1c1bdc9d195960b21b606082015260800190565b8082028115828204841417612dfb57612dfb612dd2565b600082612e7f57634e487b7160e01b600052601260045260246000fd5b500490565b858152608060208201526000612e9e608083018688612bdd565b6001600160401b0394909416604083015250606001529392505050565b61ffff86168152846020820152836040820152608060608201526000612ee5608083018486612bdd565b979650505050505050565b80820180821115612dfb57612dfb612dd2565b86815260c060208201526000612f1c60c0830188612658565b8281036040840152612f2e8188612658565b6001600160a01b0387811660608601528616608085015283810360a08501529050612c758185612658565b60008060008060808587031215612f6f57600080fd5b845160ff81168114612f8057600080fd5b6020860151909450612f91816125d9565b6040860151909350612fa2816125d9565b6060959095015193969295505050565b848152608060208201526000612fcb6080830186612658565b6001600160401b03851660408401528281036060840152612ee58185612658565b60008251612ffe818460208701612634565b9190910192915050565b85815260a06020820152600061302160a0830187612658565b6001600160401b038616604084015282810360608401526130428186612658565b905082810360808401526130568185612658565b9897505050505050505056fea2646970667358221220ab5b49b2192640cfac8d74e77121d7e25bbe8b3d7dcbda84d9f2a6078484ad3c64736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600436106102045760003560e01c8063950c8a7411610118578063dec07588116100a0578063eab45d9c1161006f578063eab45d9c146106b7578063ed629c5c146106d7578063eeed81c4146106f1578063f2fde38b14610711578063f717986e1461073157600080fd5b8063dec07588146105f0578063dfe6aa8814610610578063e540076e14610648578063e6e7dd001461069757600080fd5b8063b353aaa7116100e7578063b353aaa71461052d578063b39ac82914610561578063baf3292d146105a7578063d3cd52bc146105c7578063dc3d9e02146105dd57600080fd5b8063950c8a741461046b57806398b1f31c1461048b578063a0266645146104cc578063a0f4d4871461050d57600080fd5b806351df3b921161019b5780637025e0b51161016a5780637025e0b5146103d1578063715018a6146103e45780638365c638146103f95780638da5cb5b146104195780638f4570991461044b57600080fd5b806351df3b921461034f57806368ea28b01461037c5780636d1cc7d2146103915780636ed71955146103b157600080fd5b806332083d8e116101d757806332083d8e146102a3578063363dc905146102c357806338a7fcc2146102f357806346f6f9b51461032857600080fd5b806304336bb31461020957806307e0db171461024157806310ddb13714610263578063166b4ae814610283575b600080fd5b34801561021557600080fd5b5060065461022990610100900461ffff1681565b60405161ffff90911681526020015b60405180910390f35b34801561024d57600080fd5b5061026161025c36600461248d565b610751565b005b34801561026f57600080fd5b5061026161027e36600461248d565b6107da565b34801561028f57600080fd5b5061026161029e3660046124a8565b610832565b3480156102af57600080fd5b506102616102be366004612525565b6108ef565b3480156102cf57600080fd5b506102e36102de366004612525565b610966565b6040519015158152602001610238565b3480156102ff57600080fd5b5061031361030e366004612580565b610a2d565b60408051928352602083019190915201610238565b34801561033457600080fd5b5061033d600081565b60405160ff9091168152602001610238565b34801561035b57600080fd5b5061036f61036a3660046125ee565b610b16565b6040516102389190612684565b34801561038857600080fd5b5061033d600181565b34801561039d57600080fd5b506102616103ac366004612525565b610bc6565b3480156103bd57600080fd5b5061036f6103cc366004612697565b610c1b565b6102616103df366004612773565b610d2c565b3480156103f057600080fd5b506102616110f9565b34801561040557600080fd5b5061026161041436600461282d565b611103565b34801561042557600080fd5b506000546001600160a01b03165b6040516001600160a01b039091168152602001610238565b34801561045757600080fd5b50610261610466366004612525565b6111df565b34801561047757600080fd5b50600354610433906001600160a01b031681565b34801561049757600080fd5b506104336104a63660046128b9565b60076020908152600092835260408084209091529082529020546001600160a01b031681565b3480156104d857600080fd5b506104336104e73660046128b9565b60086020908152600092835260408084209091529082529020546001600160a01b031681565b34801561051957600080fd5b5061036f610528366004612697565b611265565b34801561053957600080fd5b506104337f000000000000000000000000000000000000000000000000000000000000000081565b34801561056d57600080fd5b5061059961057c3660046128e5565b600960209081526000928352604080842090915290825290205481565b604051908152602001610238565b3480156105b357600080fd5b506102616105c2366004612915565b6112ff565b3480156105d357600080fd5b5061022961271081565b6102616105eb36600461282d565b61135c565b3480156105fc57600080fd5b5061026161060b366004612932565b611568565b34801561061c57600080fd5b5061059961062b366004612974565b600260209081526000928352604080842090915290825290205481565b34801561065457600080fd5b506105996106633660046129a0565b6004602090815260009384526040808520845180860184018051928152908401958401959095209452929052825290205481565b3480156106a357600080fd5b506102616106b236600461248d565b611786565b3480156106c357600080fd5b506102616106d23660046129f6565b611846565b3480156106e357600080fd5b506006546102e39060ff1681565b3480156106fd57600080fd5b5061026161070c36600461282d565b61188f565b34801561071d57600080fd5b5061026161072c366004612915565b611aad565b34801561073d57600080fd5b5061026161074c366004612a11565b611b26565b610759611bbb565b6040516307e0db1760e01b815261ffff821660048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906307e0db17906024015b600060405180830381600087803b1580156107bf57600080fd5b505af11580156107d3573d6000803e3d6000fd5b5050505050565b6107e2611bbb565b6040516310ddb13760e01b815261ffff821660048201527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906310ddb137906024016107a5565b61083a611bbb565b600081116108875760405162461bcd60e51b81526020600482015260156024820152744c7a4170703a20696e76616c6964206d696e47617360581b60448201526064015b60405180910390fd5b600083815260026020908152604080832061ffff8616808552908352928190208490558051868152918201929092529081018290527ff719b08d0d2d4639fb0372e9830249577547a0d8fbbf001706fba5512090004a906060015b60405180910390a1505050565b6108f7611bbb565b81813060405160200161090c93929190612a78565b60408051601f198184030181529181526000858152600160205220906109329082612b1e565b507f4debf422f25b506edb14c37e511025fc519a36c0857d54766830f240a67a0c6a8383836040516108e293929190612c06565b6000838152600160205260408120805482919061098290612a9e565b80601f01602080910402602001604051908101604052809291908181526020018280546109ae90612a9e565b80156109fb5780601f106109d0576101008083540402835291602001916109fb565b820191906000526020600020905b8154815290600101906020018083116109de57829003601f168201915b505050505090508383604051610a12929190612c20565b60405180910390208180519060200120149150509392505050565b6040805160016020820152308183018190526060820181905260006080830181905260a0830181905260c08084018290528451808503909101815260e084019485905263568a0a1760e01b90945292839290917f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169163568a0a1791610ac8918b919086908c908c908c9060e401612c30565b6040805180830381865afa158015610ae4573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b089190612c82565b925092505094509492505050565b6040516328ef9dc960e11b815261ffff8516600482015260248101849052306044820152606481018290526060907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906351df3b9290608401600060405180830381865afa158015610b95573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610bbd9190810190612ca6565b95945050505050565b610bce611bbb565b6000838152600160205260409020610be7828483612d13565b507fd96cfe9f1a35384059e5c139c7ffa913a61868863bd5cf53e2564c1b1187221e8383836040516108e293929190612c06565b600081815260016020526040812080546060929190610c3990612a9e565b80601f0160208091040260200160405190810160405280929190818152602001828054610c6590612a9e565b8015610cb25780601f10610c8757610100808354040283529160200191610cb2565b820191906000526020600020905b815481529060010190602001808311610c9557829003601f168201915b505050505090508051600003610d0a5760405162461bcd60e51b815260206004820152601d60248201527f4c7a4170703a206e6f20747275737465642070617468207265636f7264000000604482015260640161087e565b610d25600060148351610d1d9190612de8565b839190611c15565b9392505050565b610d34611d22565b6001600160a01b038716610d945760405162461bcd60e51b815260206004820152602160248201527f57726170706564546f6b656e4272696467653a20696e76616c696420746f6b656044820152603760f91b606482015260840161087e565b6001600160a01b038416610dea5760405162461bcd60e51b815260206004820152601e60248201527f57726170706564546f6b656e4272696467653a20696e76616c696420746f0000604482015260640161087e565b60008511610e455760405162461bcd60e51b815260206004820152602260248201527f57726170706564546f6b656e4272696467653a20696e76616c696420616d6f756044820152611b9d60f21b606482015260840161087e565b610e5186600183611d7b565b6001600160a01b0380881660009081526007602090815260408083208a84529091529020541680610e945760405162461bcd60e51b815260040161087e90612e01565b60008781526009602090815260408083206001600160a01b0385168452909152902054861115610f2c5760405162461bcd60e51b815260206004820152603d60248201527f57726170706564546f6b656e4272696467653a20696e73756666696369656e7460448201527f206c6971756964697479206f6e207468652064657374696e6174696f6e000000606482015260840161087e565b60008781526009602090815260408083206001600160a01b038516845290915281208054889290610f5e908490612de8565b9091555050604051632770a7eb60e21b8152336004820152602481018790526001600160a01b03891690639dc29fac90604401600060405180830381600087803b158015610fab57600080fd5b505af1158015610fbf573d6000803e3d6000fd5b5050600654889250610100900461ffff1615905061100e5760065460009061271090610ff490610100900461ffff168a612e4b565b610ffe9190612e62565b905061100a8183612de8565b9150505b60408051600160208201526001600160a01b038085169282019290925290871660608201526080810182905260a0810188905285151560c082015260009060e00160408051601f19818403018152919052905061108a89826110736020890189612915565b61108360408a0160208b01612915565b8834611dfc565b604080516001600160a01b038c8116825285811660208301528183018c905289166060820152608081018a905290517f1b0cd6023bd8e23b3cd315607276058087c3a9602a4b6e193becdbeb6a29f1e89181900360a00190a15050506110f06001600555565b50505050505050565b611101611bbb565b565b3330146111615760405162461bcd60e51b815260206004820152602660248201527f4e6f6e626c6f636b696e674c7a4170703a2063616c6c6572206d7573742062656044820152650204c7a4170760d41b606482015260840161087e565b6111d78686868080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525050604080516020601f890181900481028201810190925287815289935091508790879081908401838280828437600092019190915250611f9292505050565b505050505050565b6111e7611bbb565b604051638f45709960e01b81526001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690638f4570999061123790869086908690600401612c06565b600060405180830381600087803b15801561125157600080fd5b505af11580156110f0573d6000803e3d6000fd5b6001602052600090815260409020805461127e90612a9e565b80601f01602080910402602001604051908101604052809291908181526020018280546112aa90612a9e565b80156112f75780601f106112cc576101008083540402835291602001916112f7565b820191906000526020600020905b8154815290600101906020018083116112da57829003601f168201915b505050505081565b611307611bbb565b600380546001600160a01b0319166001600160a01b0383169081179091556040519081527f5db758e995a17ec1ad84bdef7e8c3293a0bd6179bcce400dff5d4c3d87db726b906020015b60405180910390a150565b600086815260046020526040808220905161137a9088908890612c20565b90815260408051602092819003830190206001600160401b038716600090815292529020549050806113fa5760405162461bcd60e51b815260206004820152602360248201527f4e6f6e626c6f636b696e674c7a4170703a206e6f2073746f726564206d65737360448201526261676560e81b606482015260840161087e565b80838360405161140b929190612c20565b60405180910390201461146a5760405162461bcd60e51b815260206004820152602160248201527f4e6f6e626c6f636b696e674c7a4170703a20696e76616c6964207061796c6f616044820152601960fa1b606482015260840161087e565b60008781526004602052604080822090516114889089908990612c20565b90815260408051602092819003830181206001600160401b038916600090815290845282902093909355601f88018290048202830182019052868252611520918991899089908190840183828082843760009201919091525050604080516020601f8a018190048102820181019092528881528a935091508890889081908401838280828437600092019190915250611f9292505050565b7f85964bbb9f663dc45133d203c4499633f99a40f37422701ddfa5677b70a2e8d78787878785604051611557959493929190612e84565b60405180910390a150505050505050565b611570611bbb565b6001600160a01b0383166115d65760405162461bcd60e51b815260206004820152602760248201527f57726170706564546f6b656e4272696467653a20696e76616c6964206c6f636160448201526636103a37b5b2b760c91b606482015260840161087e565b6001600160a01b03811661163d5760405162461bcd60e51b815260206004820152602860248201527f57726170706564546f6b656e4272696467653a20696e76616c69642072656d6f6044820152673a32903a37b5b2b760c11b606482015260840161087e565b6001600160a01b0383811660009081526007602090815260408083208684529091529020541615801561169357506001600160a01b03818116600090815260086020908152604080832086845290915290205416155b6116f45760405162461bcd60e51b815260206004820152602c60248201527f57726170706564546f6b656e4272696467653a20746f6b656e20616c7265616460448201526b1e481c9959da5cdd195c995960a21b606482015260840161087e565b6001600160a01b038381166000818152600760209081526040808320878452825280832080546001600160a01b03199081169688169687179091558584526008835281842088855283529281902080549093168417909255815192835282018590528101919091527fee0f466d980e4e20d086c0e7c3300fea6db44ecc80114a632f1be9cdb922bbf6906060016108e2565b61178e611bbb565b61271061ffff8216106117fa5760405162461bcd60e51b815260206004820152602e60248201527f57726170706564546f6b656e4272696467653a20696e76616c6964207769746860448201526d64726177616c206665652062707360901b606482015260840161087e565b6006805462ffff00191661010061ffff8416908102919091179091556040519081527f6d0c3abfe7f8a420e34f51060ff6519e1b0f47249f7043e76abc83f61b9f99f790602001611351565b61184e611bbb565b6006805460ff19168215159081179091556040519081527f1584ad594a70cbe1e6515592e1272a987d922b097ead875069cebe8b40c004a490602001611351565b337f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316146119075760405162461bcd60e51b815260206004820152601e60248201527f4c7a4170703a20696e76616c696420656e64706f696e742063616c6c65720000604482015260640161087e565b6000868152600160205260408120805461192090612a9e565b80601f016020809104026020016040519081016040528092919081815260200182805461194c90612a9e565b80156119995780601f1061196e57610100808354040283529160200191611999565b820191906000526020600020905b81548152906001019060200180831161197c57829003601f168201915b505050505090508051868690501480156119b4575060008151115b80156119dc5750805160208201206040516119d29088908890612c20565b6040518091039020145b611a375760405162461bcd60e51b815260206004820152602660248201527f4c7a4170703a20696e76616c696420736f757263652073656e64696e6720636f6044820152651b9d1c9858dd60d21b606482015260840161087e565b6110f08787878080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525050604080516020601f8a018190048102820181019092528881528a93509150889088908190840183828082843760009201919091525061215892505050565b611ab5611bbb565b6001600160a01b038116611b1a5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b606482015260840161087e565b611b23816121d1565b50565b611b2e611bbb565b604051637b8bcc3760e11b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169063f717986e90611b829088908890889088908890600401612ebb565b600060405180830381600087803b158015611b9c57600080fd5b505af1158015611bb0573d6000803e3d6000fd5b505050505050505050565b6000546001600160a01b031633146111015760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015260640161087e565b606081611c2381601f612ef0565b1015611c625760405162461bcd60e51b815260206004820152600e60248201526d736c6963655f6f766572666c6f7760901b604482015260640161087e565b611c6c8284612ef0565b84511015611cb05760405162461bcd60e51b8152602060048201526011602482015270736c6963655f6f75744f66426f756e647360781b604482015260640161087e565b606082158015611ccf5760405191506000825260208201604052611d19565b6040519150601f8416801560200281840101858101878315602002848b0101015b81831015611d08578051835260209283019201611cf0565b5050858452601f01601f1916604052505b50949350505050565b600260055403611d745760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161087e565b6002600555565b60065460ff1615611d9857611d938383836000612221565b505050565b805115611d935760405162461bcd60e51b815260206004820152602c60248201527f546f6b656e427269646765426173653a2061646170746572506172616d73206d60448201526b75737420626520656d70747960a01b606482015260840161087e565b60008681526001602052604081208054611e1590612a9e565b80601f0160208091040260200160405190810160405280929190818152602001828054611e4190612a9e565b8015611e8e5780601f10611e6357610100808354040283529160200191611e8e565b820191906000526020600020905b815481529060010190602001808311611e7157829003601f168201915b505050505090508051600003611eff5760405162461bcd60e51b815260206004820152603060248201527f4c7a4170703a2064657374696e6174696f6e20636861696e206973206e6f742060448201526f61207472757374656420736f7572636560801b606482015260840161087e565b60405163654bc36560e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169063654bc365908490611f57908b9086908c908c908c908c90600401612f03565b6000604051808303818588803b158015611f7057600080fd5b505af1158015611f84573d6000803e3d6000fd5b505050505050505050505050565b60008060008084806020019051810190611fac9190612f59565b9296509094509250905060ff8416156120175760405162461bcd60e51b815260206004820152602760248201527f57726170706564546f6b656e4272696467653a20756e6b6e6f776e207061636b6044820152666574207479706560c81b606482015260840161087e565b6001600160a01b0380841660009081526008602090815260408083208c8452909152902054168061205a5760405162461bcd60e51b815260040161087e90612e01565b60008981526009602090815260408083206001600160a01b03881684529091528120805484929061208c908490612ef0565b90915550506040516340c10f1960e01b81526001600160a01b038481166004830152602482018490528216906340c10f1990604401600060405180830381600087803b1580156120db57600080fd5b505af11580156120ef573d6000803e3d6000fd5b5050604080516001600160a01b03858116825288811660208301528183018e9052871660608201526080810186905290517f06e6ce497c880574a9853933f070471bf15f19852fea8ef238a81f7a01a13d8e93509081900360a0019150a1505050505050505050565b6000806121bb5a6096638365c63860e01b898989896040516024016121809493929190612fb2565b60408051601f198184030181529190526020810180516001600160e01b03166001600160e01b031990931692909217909152309291906122fb565b91509150816111d7576111d78686868685612385565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b600061222c8361241a565b600086815260026020908152604080832061ffff8916845290915281205491925090612259908490612ef0565b9050600081116122ab5760405162461bcd60e51b815260206004820152601a60248201527f4c7a4170703a206d696e4761734c696d6974206e6f7420736574000000000000604482015260640161087e565b808210156111d75760405162461bcd60e51b815260206004820152601b60248201527f4c7a4170703a20676173206c696d697420697320746f6f206c6f770000000000604482015260640161087e565b6000606060008060008661ffff166001600160401b03811115612320576123206126b0565b6040519080825280601f01601f19166020018201604052801561234a576020820181803683370190505b50905060008087516020890160008d8df191503d92508683111561236c578692505b828152826000602083013e909890975095505050505050565b818051906020012060046000878152602001908152602001600020856040516123ae9190612fec565b9081526040805191829003602090810183206001600160401b0388166000908152915220919091557f6db5472a51c00bdf9121aee3336b6c10821175f2bdcdc3862630936d4b1aef199061240b9087908790879087908790613008565b60405180910390a15050505050565b600060228251101561246e5760405162461bcd60e51b815260206004820152601c60248201527f4c7a4170703a20696e76616c69642061646170746572506172616d7300000000604482015260640161087e565b506022015190565b803561ffff8116811461248857600080fd5b919050565b60006020828403121561249f57600080fd5b610d2582612476565b6000806000606084860312156124bd57600080fd5b833592506124cd60208501612476565b9150604084013590509250925092565b60008083601f8401126124ef57600080fd5b5081356001600160401b0381111561250657600080fd5b60208301915083602082850101111561251e57600080fd5b9250929050565b60008060006040848603121561253a57600080fd5b8335925060208401356001600160401b0381111561255757600080fd5b612563868287016124dd565b9497909650939450505050565b8035801515811461248857600080fd5b6000806000806060858703121561259657600080fd5b843593506125a660208601612570565b925060408501356001600160401b038111156125c157600080fd5b6125cd878288016124dd565b95989497509550505050565b6001600160a01b0381168114611b2357600080fd5b6000806000806080858703121561260457600080fd5b61260d85612476565b9350602085013592506040850135612624816125d9565b9396929550929360600135925050565b60005b8381101561264f578181015183820152602001612637565b50506000910152565b60008151808452612670816020860160208601612634565b601f01601f19169290920160200192915050565b602081526000610d256020830184612658565b6000602082840312156126a957600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f191681016001600160401b03811182821017156126ee576126ee6126b0565b604052919050565b60006001600160401b0382111561270f5761270f6126b0565b50601f01601f191660200190565b600082601f83011261272e57600080fd5b813561274161273c826126f6565b6126c6565b81815284602083860101111561275657600080fd5b816020850160208301376000918101602001919091529392505050565b600080600080600080600087890361010081121561279057600080fd5b883561279b816125d9565b9750602089013596506040890135955060608901356127b9816125d9565b94506127c760808a01612570565b93506040609f19820112156127db57600080fd5b5060a08801915060e08801356001600160401b038111156127fb57600080fd5b6128078a828b0161271d565b91505092959891949750929550565b80356001600160401b038116811461248857600080fd5b6000806000806000806080878903121561284657600080fd5b8635955060208701356001600160401b038082111561286457600080fd5b6128708a838b016124dd565b909750955085915061288460408a01612816565b9450606089013591508082111561289a57600080fd5b506128a789828a016124dd565b979a9699509497509295939492505050565b600080604083850312156128cc57600080fd5b82356128d7816125d9565b946020939093013593505050565b600080604083850312156128f857600080fd5b82359150602083013561290a816125d9565b809150509250929050565b60006020828403121561292757600080fd5b8135610d25816125d9565b60008060006060848603121561294757600080fd5b8335612952816125d9565b9250602084013591506040840135612969816125d9565b809150509250925092565b6000806040838503121561298757600080fd5b8235915061299760208401612476565b90509250929050565b6000806000606084860312156129b557600080fd5b8335925060208401356001600160401b038111156129d257600080fd5b6129de8682870161271d565b9250506129ed60408501612816565b90509250925092565b600060208284031215612a0857600080fd5b610d2582612570565b600080600080600060808688031215612a2957600080fd5b612a3286612476565b9450602086013593506040860135925060608601356001600160401b03811115612a5b57600080fd5b612a67888289016124dd565b969995985093965092949392505050565b8284823760609190911b6bffffffffffffffffffffffff19169101908152601401919050565b600181811c90821680612ab257607f821691505b602082108103612ad257634e487b7160e01b600052602260045260246000fd5b50919050565b601f821115611d9357600081815260208120601f850160051c81016020861015612aff5750805b601f850160051c820191505b818110156111d757828155600101612b0b565b81516001600160401b03811115612b3757612b376126b0565b612b4b81612b458454612a9e565b84612ad8565b602080601f831160018114612b805760008415612b685750858301515b600019600386901b1c1916600185901b1785556111d7565b600085815260208120601f198616915b82811015612baf57888601518255948401946001909101908401612b90565b5085821015612bcd5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b838152604060208201526000610bbd604083018486612bdd565b8183823760009101908152919050565b8681526001600160a01b038616602082015260a060408201819052600090612c5a90830187612658565b85151560608401528281036080840152612c75818587612bdd565b9998505050505050505050565b60008060408385031215612c9557600080fd5b505080516020909101519092909150565b600060208284031215612cb857600080fd5b81516001600160401b03811115612cce57600080fd5b8201601f81018413612cdf57600080fd5b8051612ced61273c826126f6565b818152856020838501011115612d0257600080fd5b610bbd826020830160208601612634565b6001600160401b03831115612d2a57612d2a6126b0565b612d3e83612d388354612a9e565b83612ad8565b6000601f841160018114612d725760008515612d5a5750838201355b600019600387901b1c1916600186901b1783556107d3565b600083815260209020601f19861690835b82811015612da35786850135825560209485019460019092019101612d83565b5086821015612dc05760001960f88860031b161c19848701351681555b505060018560011b0183555050505050565b634e487b7160e01b600052601160045260246000fd5b81810381811115612dfb57612dfb612dd2565b92915050565b6020808252602a908201527f57726170706564546f6b656e4272696467653a20746f6b656e206973206e6f74604082015269081cdd5c1c1bdc9d195960b21b606082015260800190565b8082028115828204841417612dfb57612dfb612dd2565b600082612e7f57634e487b7160e01b600052601260045260246000fd5b500490565b858152608060208201526000612e9e608083018688612bdd565b6001600160401b0394909416604083015250606001529392505050565b61ffff86168152846020820152836040820152608060608201526000612ee5608083018486612bdd565b979650505050505050565b80820180821115612dfb57612dfb612dd2565b86815260c060208201526000612f1c60c0830188612658565b8281036040840152612f2e8188612658565b6001600160a01b0387811660608601528616608085015283810360a08501529050612c758185612658565b60008060008060808587031215612f6f57600080fd5b845160ff81168114612f8057600080fd5b6020860151909450612f91816125d9565b6040860151909350612fa2816125d9565b6060959095015193969295505050565b848152608060208201526000612fcb6080830186612658565b6001600160401b03851660408401528281036060840152612ee58185612658565b60008251612ffe818460208701612634565b9190910192915050565b85815260a06020820152600061302160a0830187612658565b6001600160401b038616604084015282810360608401526130428186612658565b905082810360808401526130568185612658565b9897505050505050505056fea2646970667358221220ab5b49b2192640cfac8d74e77121d7e25bbe8b3d7dcbda84d9f2a6078484ad3c64736f6c63430008110033",
+  "devdoc": {
+    "details": "Mints a wrapped token when a message received from a remote chain and burns a wrapped token when bridging to a remote chain",
+    "kind": "dev",
+    "methods": {
+      "bridge(address,uint256,uint256,address,bool,(address,address),bytes)": {
+        "details": "Burns wrapped tokens and sends LZ message to the remote chain to unlock original tokens"
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Overrides the renounce ownership logic inherited from openZeppelin `Ownable`"
+      },
+      "setUseCustomAdapterParams(bool)": {
+        "details": "Can be called only by the bridge owner"
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "stateVariables": {
+      "localToRemote": {
+        "details": "[local token] => [remote chain] => [remote token]"
+      },
+      "remoteToLocal": {
+        "details": "[remote token] => [remote chain] => [local token]"
+      },
+      "totalValueLocked": {
+        "details": "[remote chain] => [remote token] => [bridged amount]"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "PT_MINT()": {
+        "notice": "A packet type used to identify messages requesting minting of wrapped tokens"
+      },
+      "PT_UNLOCK()": {
+        "notice": "A packet type used to identify messages requesting unlocking of original tokens"
+      },
+      "TOTAL_BPS()": {
+        "notice": "Total bps representing 100%"
+      },
+      "bridge(address,uint256,uint256,address,bool,(address,address),bytes)": {
+        "notice": "Bridges `localToken` to the remote chain"
+      },
+      "localToRemote(address,uint256)": {
+        "notice": "Tokens that can be bridged"
+      },
+      "remoteToLocal(address,uint256)": {
+        "notice": "Tokens that can be bridged"
+      },
+      "setUseCustomAdapterParams(bool)": {
+        "notice": "Sets the `useCustomAdapterParams` flag indicating whether the contract uses custom adapter parameters or the default ones"
+      },
+      "totalValueLocked(uint256,address)": {
+        "notice": "Total value bridged per token and remote chains"
+      },
+      "withdrawalFeeBps()": {
+        "notice": "An optional fee charged on withdrawal, expressed in bps. E.g., 1bps = 0.01%"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 1583,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 437,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "trustedRemoteLookup",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_bytes_storage)"
+      },
+      {
+        "astId": 443,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "minDstGasLookup",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_mapping(t_uint16,t_uint256))"
+      },
+      {
+        "astId": 445,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "precrime",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_address"
+      },
+      {
+        "astId": 930,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "failedMessages",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_uint256,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))"
+      },
+      {
+        "astId": 1699,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "_status",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 3265,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "useCustomAdapterParams",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_bool"
+      },
+      {
+        "astId": 3354,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "withdrawalFeeBps",
+        "offset": 1,
+        "slot": "6",
+        "type": "t_uint16"
+      },
+      {
+        "astId": 3361,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "localToRemote",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_address,t_mapping(t_uint256,t_address))"
+      },
+      {
+        "astId": 3368,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "remoteToLocal",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_mapping(t_address,t_mapping(t_uint256,t_address))"
+      },
+      {
+        "astId": 3375,
+        "contract": "contracts/WrappedTokenBridge.sol:WrappedTokenBridge",
+        "label": "totalValueLocked",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_bytes_memory_ptr": {
+        "encoding": "bytes",
+        "label": "bytes",
+        "numberOfBytes": "32"
+      },
+      "t_bytes_storage": {
+        "encoding": "bytes",
+        "label": "bytes",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_mapping(t_uint256,t_address))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(uint256 => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint256,t_address)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+        "encoding": "mapping",
+        "key": "t_bytes_memory_ptr",
+        "label": "mapping(bytes => mapping(uint64 => bytes32))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint64,t_bytes32)"
+      },
+      "t_mapping(t_uint16,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_uint16",
+        "label": "mapping(uint16 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_address)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_bytes_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bytes)",
+        "numberOfBytes": "32",
+        "value": "t_bytes_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_uint256,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(bytes => mapping(uint64 => bytes32)))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))"
+      },
+      "t_mapping(t_uint256,t_mapping(t_uint16,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(uint16 => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint16,t_uint256)"
+      },
+      "t_mapping(t_uint64,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_uint64",
+        "label": "mapping(uint64 => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_uint16": {
+        "encoding": "inplace",
+        "label": "uint16",
+        "numberOfBytes": "2"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  }
+}

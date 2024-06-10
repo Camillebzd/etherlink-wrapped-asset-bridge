@@ -153,6 +153,11 @@ module.exports = {
       url: 'https://rpc.test.btcs.network/',
       chainId: 1115,
       accounts: accounts(),
-    }
+    },
+    'etherlink-testnet': {
+      url: 'https://node.ghostnet.etherlink.com/',
+      chainId: 128123,
+      accounts: accounts(),
+    },
   }
 };

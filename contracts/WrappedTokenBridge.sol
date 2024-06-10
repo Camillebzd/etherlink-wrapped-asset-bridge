@@ -16,24 +16,24 @@ contract WrappedTokenBridge is TokenBridgeBase {
 
     /// @notice Tokens that can be bridged
     /// @dev [local token] => [remote chain] => [remote token]
-    mapping(address => mapping(uint16 => address)) public localToRemote;
+    mapping(address => mapping(uint256 => address)) public localToRemote;
 
     /// @notice Tokens that can be bridged
     /// @dev [remote token] => [remote chain] => [local token]
-    mapping(address => mapping(uint16 => address)) public remoteToLocal;
+    mapping(address => mapping(uint256 => address)) public remoteToLocal;
 
     /// @notice Total value bridged per token and remote chains
     /// @dev [remote chain] => [remote token] => [bridged amount]
-    mapping(uint16 => mapping(address => uint)) public totalValueLocked;
+    mapping(uint256 => mapping(address => uint)) public totalValueLocked;
 
-    event WrapToken(address localToken, address remoteToken, uint16 remoteChainId, address to, uint amount);
-    event UnwrapToken(address localToken, address remoteToken, uint16 remoteChainId, address to, uint amount);
-    event RegisterToken(address localToken, uint16 remoteChainId, address remoteToken);
+    event WrapToken(address localToken, address remoteToken, uint256 remoteChainId, address to, uint amount);
+    event UnwrapToken(address localToken, address remoteToken, uint256 remoteChainId, address to, uint amount);
+    event RegisterToken(address localToken, uint256 remoteChainId, address remoteToken);
     event SetWithdrawalFeeBps(uint16 withdrawalFeeBps);
 
     constructor(address _endpoint) TokenBridgeBase(_endpoint) {}
 
-    function registerToken(address localToken, uint16 remoteChainId, address remoteToken) external onlyOwner {
+    function registerToken(address localToken, uint256 remoteChainId, address remoteToken) external onlyOwner {
         require(localToken != address(0), "WrappedTokenBridge: invalid local token");
         require(remoteToken != address(0), "WrappedTokenBridge: invalid remote token");
         require(localToRemote[localToken][remoteChainId] == address(0) && remoteToLocal[remoteToken][remoteChainId] == address(0), "WrappedTokenBridge: token already registered");
@@ -49,7 +49,7 @@ contract WrappedTokenBridge is TokenBridgeBase {
         emit SetWithdrawalFeeBps(_withdrawalFeeBps);
     }
 
-    function estimateBridgeFee(uint16 remoteChainId, bool useZro, bytes calldata adapterParams) external view returns (uint nativeFee, uint zroFee) {
+    function estimateBridgeFee(uint256 remoteChainId, bool useZro, bytes calldata adapterParams) external view returns (uint nativeFee, uint zroFee) {
         // Only the payload format matters when estimating fee, not the actual data
         bytes memory payload = abi.encode(PT_UNLOCK, address(this), address(this), 0, 0, false);
         return lzEndpoint.estimateFees(remoteChainId, address(this), payload, useZro, adapterParams);
@@ -57,7 +57,7 @@ contract WrappedTokenBridge is TokenBridgeBase {
 
     /// @notice Bridges `localToken` to the remote chain
     /// @dev Burns wrapped tokens and sends LZ message to the remote chain to unlock original tokens
-    function bridge(address localToken, uint16 remoteChainId, uint amount, address to, bool unwrapWeth, LzLib.CallParams calldata callParams, bytes memory adapterParams) external payable nonReentrant {
+    function bridge(address localToken, uint256 remoteChainId, uint amount, address to, bool unwrapWeth, LzLib.CallParams calldata callParams, bytes memory adapterParams) external payable nonReentrant {
         require(localToken != address(0), "WrappedTokenBridge: invalid token");
         require(to != address(0), "WrappedTokenBridge: invalid to");
         require(amount > 0, "WrappedTokenBridge: invalid amount");
@@ -83,7 +83,7 @@ contract WrappedTokenBridge is TokenBridgeBase {
 
     /// @notice Receives ERC20 tokens or ETH from the remote chain
     /// @dev Mints wrapped tokens in response to LZ message from the remote chain
-    function _nonblockingLzReceive(uint16 srcChainId, bytes memory, uint64, bytes memory payload) internal virtual override {
+    function _nonblockingLzReceive(uint256 srcChainId, bytes memory, uint64, bytes memory payload) internal virtual override {
         (uint8 packetType, address remoteToken, address to, uint amount) = abi.decode(payload, (uint8, address, address, uint));
         require(packetType == PT_MINT, "WrappedTokenBridge: unknown packet type");
 

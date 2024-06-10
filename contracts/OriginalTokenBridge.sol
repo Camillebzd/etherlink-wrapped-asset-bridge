@@ -22,18 +22,18 @@ contract OriginalTokenBridge is TokenBridgeBase {
     mapping(address => uint) public totalValueLockedSD;
 
     /// @notice LayerZero id of the remote chain where wrapped tokens are minted
-    uint16 public remoteChainId;
+    uint256 public remoteChainId;
 
     /// @notice Address of the wrapped native gas token (e.g. WETH, WBNB, WMATIC)
     address public immutable weth;
 
     event SendToken(address token, address from, address to, uint amount);
     event ReceiveToken(address token, address to, uint amount);
-    event SetRemoteChainId(uint16 remoteChainId);
+    event SetRemoteChainId(uint256 remoteChainId);
     event RegisterToken(address token);
     event WithdrawFee(address indexed token, address to, uint amount);
 
-    constructor(address _endpoint, uint16 _remoteChainId, address _weth) TokenBridgeBase(_endpoint) {
+    constructor(address _endpoint, uint256 _remoteChainId, address _weth) TokenBridgeBase(_endpoint) {
         require(_weth != address(0), "OriginalTokenBridge: invalid WETH address");
         remoteChainId = _remoteChainId;
         weth = _weth;
@@ -55,7 +55,7 @@ contract OriginalTokenBridge is TokenBridgeBase {
         emit RegisterToken(token);
     }
 
-    function setRemoteChainId(uint16 _remoteChainId) external onlyOwner {
+    function setRemoteChainId(uint256 _remoteChainId) external onlyOwner {
         remoteChainId = _remoteChainId;
         emit SetRemoteChainId(_remoteChainId);
     }
@@ -122,7 +122,7 @@ contract OriginalTokenBridge is TokenBridgeBase {
 
     /// @notice Receives ERC20 tokens or ETH from the remote chain
     /// @dev Unlocks locked ERC20 tokens or ETH in response to LZ message from the remote chain
-    function _nonblockingLzReceive(uint16 srcChainId, bytes memory, uint64, bytes memory payload) internal virtual override {
+    function _nonblockingLzReceive(uint256 srcChainId, bytes memory, uint64, bytes memory payload) internal virtual override {
         require(srcChainId == remoteChainId, "OriginalTokenBridge: invalid source chain id");
 
         (uint8 packetType, address token, address to, uint withdrawalAmountSD, uint totalAmountSD, bool unwrapWeth) = abi.decode(payload, (uint8, address, address, uint, uint, bool));

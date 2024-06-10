@@ -26,7 +26,7 @@ abstract contract TokenBridgeBase is NonblockingLzApp, ReentrancyGuard {
     }
 
     /// @dev Checks `adapterParams` for correctness
-    function _checkAdapterParams(uint16 dstChainId, uint16 pkType, bytes memory adapterParams) internal virtual {
+    function _checkAdapterParams(uint256 dstChainId, uint16 pkType, bytes memory adapterParams) internal virtual {
         if (useCustomAdapterParams) {
             _checkGasLimit(dstChainId, pkType, adapterParams, 0);
         } else {
