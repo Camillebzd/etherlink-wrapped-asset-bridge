@@ -61,6 +61,8 @@ Get the coverage report.
 1. Call `estimateBridgeFee(uint16 remoteChainId, bool useZro, bytes calldata adapterParams)` in `WrappedTokenBridge`.
 2. Call `bridge(address localToken, uint16 remoteChainId, uint amount, address to, bool unwrapWeth, LzLib.CallParams calldata callParams, bytes memory adapterParams)` supplying `nativeFee` obtained earlier as a value. This will burn wrapped tokens and send a LayerZero message to `OriginalTokenBridge` contract on another chain to unlock original tokens.
 
+# Etherlink testnet tests
 
+I changed a lot of things including the base contracts of the LZApp from LayerZero because the destination and source chain ID are actually stored in an uint16. The maximum value storable is then 65k but the Etherlink testnet chain ID is 128123 so you can't use it on this protocol. That is why I manually changed these uint in all the code.
 
-
+Do not redeploy the contracts for Etherlink testnet and BSC testnet. If you want to do so, you will have to manually change everything too.
