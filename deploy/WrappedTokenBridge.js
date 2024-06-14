@@ -8,13 +8,15 @@ module.exports = async function ({ deployments, getNamedAccounts, network }) {
 	const lzEndpointAddress = LZ_ENDPOINTS[network.name]
 	console.log(`[${network.name}] Endpoint Address: ${lzEndpointAddress}`)
 
-	await deploy("WrappedTokenBridge", {
+	const contract = await deploy("WrappedTokenBridge", {
 		from: deployer,
 		args: [lzEndpointAddress],
 		log: true,
 		waitConfirmations: 1,
 		skipIfAlreadyDeployed: true
 	})
+
+	console.log(`\n\n    To verify it, run npx hardhat verify ${contract.address} --network ${network.name} ${lzEndpointAddress}\n\n`);
 }
 
 module.exports.tags = ["WrappedTokenBridge"]

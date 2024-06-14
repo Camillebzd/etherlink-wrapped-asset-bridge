@@ -66,3 +66,10 @@ Get the coverage report.
 I changed a lot of things including the base contracts of the LZApp from LayerZero because the destination and source chain ID are actually stored in an uint16. The maximum value storable is then 65k but the Etherlink testnet chain ID is 128123 so you can't use it on this protocol. That is why I manually changed these uint in all the code.
 
 Do not redeploy the contracts for Etherlink testnet and BSC testnet. If you want to do so, you will have to manually change everything too.
+
+```
+npx hh deployBridges --original-networks bscTestnet --wrapped-network etherlinkTestnet
+npx hh setTrustedRemote --original-networks bscTestnet --wrapped-network etherlinkTestnet
+npx hh deployMockTokens --original-networks bscTestnet
+npx hh deploy --tags WrappedERC20 --network etherlinkTestnet
+```

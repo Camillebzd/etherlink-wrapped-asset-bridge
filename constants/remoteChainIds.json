@@ -4,7 +4,7 @@
 	"polygon":		153,
 	
 	"goerli": 		10153,
-	"bsc-testnet": 	10153,
+	"bscTestnet": 	10153,
 	"mumbai": 		10153,
-	"etherlink-testnet": 		10153
+	"etherlinkTestnet": 		10153
 }

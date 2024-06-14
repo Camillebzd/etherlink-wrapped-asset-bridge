@@ -39,6 +39,16 @@ function accounts(chainKey) {
   return { mnemonic: getMnemonic(chainKey) }
 }
 
+const ETHERSCAN_API_KEY = 
+  process.env.ETHERSCAN_API_KEY || 
+  "";
+const ETHERLINK_API_KEY = 
+  process.env.ETHERLINK_API_KEY || 
+  "";
+const BSCSCAN_API_KEY =
+  process.env.BSCSCAN_API_KEY ||
+  "";
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -57,7 +67,16 @@ module.exports = {
             runs: 200
           }
         }
-      }    
+      },
+      {
+        version: "0.7.6",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        }
+      }
     ]
   },
   contractSizer: {
@@ -119,7 +138,7 @@ module.exports = {
       chainId: 5,
       accounts: accounts(),
     },
-    'bsc-testnet': {
+    'bscTestnet': {
       url: 'https://data-seed-prebsc-2-s1.binance.org:8545/',
       chainId: 97,
       accounts: accounts(),
@@ -154,10 +173,28 @@ module.exports = {
       chainId: 1115,
       accounts: accounts(),
     },
-    'etherlink-testnet': {
+    'etherlinkTestnet': {
       url: 'https://node.ghostnet.etherlink.com/',
       chainId: 128123,
       accounts: accounts(),
     },
+  },
+
+  etherscan: {
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
+      'etherlinkTestnet': ETHERLINK_API_KEY,
+      'bscTestnet': BSCSCAN_API_KEY
+    },
+    customChains: [
+      {
+        network: "etherlinkTestnet",
+        chainId: 128123,
+        urls: {
+          apiURL: "https://testnet-explorer.etherlink.com/api",
+          browserURL: "https://testnet-explorer.etherlink.com"
+        }
+      },
+    ]
   }
 };

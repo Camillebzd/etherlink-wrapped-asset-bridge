@@ -16,13 +16,15 @@ module.exports = async function ({ deployments, getNamedAccounts, network }) {
 	const weth = WETHS[network.name]
 	console.log(`[${network.name}] WETH Address: ${weth}`)
 
-	await deploy("OriginalTokenBridge", {
+	const contract = await deploy("OriginalTokenBridge", {
 		from: deployer,
 		args: [lzEndpointAddress, remoteChainId, weth],
 		log: true,
 		waitConfirmations: 1,
 		skipIfAlreadyDeployed: true
 	})
+
+	console.log(`\n\n    To verify it, run npx hardhat verify ${contract.address} --network ${network.name} ${lzEndpointAddress} ${remoteChainId} ${weth}\n\n`);
 }
 
 module.exports.tags = ["OriginalTokenBridge"]
